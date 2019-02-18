@@ -6,8 +6,8 @@ import sqlite3
 import re
 
 # Specify files here for testing
-file = open('//Users//zachburnham//Desktop//Capstone//Mac_apt_Output//exampleWrite.txt', 'w+')
-connection = sqlite3.connect('//Users//zachburnham//Desktop//Capstone//Mac_apt_Output//mac_apt02.db')
+file = open('E:\\CAPSTONE\\Mac_apt_Output-20190117T201041Z-001\\Mac_apt_Output\\exampleWrite.txt', 'w+')
+connection = sqlite3.connect('E:\\CAPSTONE\\Mac_apt_Output-20190117T201041Z-001\\Mac_apt_Output\\mac_apt02.db')
 cursor = connection.cursor()
 
 # Mounted Volume variables
@@ -84,7 +84,6 @@ while end != "yes":
             for (row) in output:
                 e.append(str(row[0]))
             if counter == 2:
-                #print(str(counter))
                 fsList.append(str(e))
                 fsLength: int = len(fsList)
                 if y == (volLength - 1):
@@ -92,26 +91,74 @@ while end != "yes":
                     counter = counter + 1
                 else:
                      y = y + 1
-                print("fsList " + str(fsList))
             elif counter == 3:
-                #print(str(counter))
                 lsList.append(str(e))
                 lsLength: int = len(lsList)
-                print("lsList " + str(lsList))
                 if y == (volLength - 1):
                     y = 0
                     counter = counter + 1
                 else:
                      y = y + 1
             else:
-                print("Done")
                 y = (volLength + 1)
                 end = "yes"
 
-file.write('\n')
-file.close
+m = 0
+z = 0
+while m < (volLength):
 
-# Global variables and function call
+    file.write("\t-Volume Name: " + str(volList[z]) + "\n" + "\t\tVolume created on: " + str(
+        crList[z]) + "\n" + "\t\tVolume first seen on: " + str(
+        fsList[z]) + "\n" + "\t\tVolume last seen on: " + str(
+        lsList[z]) + "\n")## + "\t\tBash Command: " + str(Matrix[mVolCount][mRowCount]) + "\n")
+    m = m + 1
+    z = z + 1
+
+
 a = "None"
 b = "None"
 output = None
+
+
+# Below is matrix stuff
+
+
+
+# Matrix = [[volList],
+#           [crList],
+#           [fsList],
+#           [lsList]]
+
+# mVolCount = 0  # First Value (mColCount, mRowCount)
+# mRowCount = 0  # Second Value
+#isOver = "no"
+#
+#     file.write("\t-Volume Name: " + str(Matrix[mVolCount][mRowCount]) + "\n" + "\t\tVolume created on: " + str(
+#         Matrix[mVolCount][mRowCount]) + "\n" + "\t\tVolume first seen on: " + str(
+#         Matrix[mVolCount][mRowCount]) + "\n" + "\t\tVolume last seen on: " + str(
+#         Matrix[mVolCount][mRowCount]) + "\n")## + "\t\tBash Command: " + str(Matrix[mVolCount][mRowCount]) + "\n")
+#     print("Inside function")
+#     file.close
+#
+#
+# while isOver != "yes":
+#     while mVolCount < (volLength + 1):
+#
+#         while mRowCount < 4:
+#             if mVolCount < volLength:
+#                 test()
+#                 print(mVolCount)
+#                 print(volLength)
+#                 mVolCount = mVolCount + 1
+#             elif mVolCount == volLength:
+#                 mVolCount = 0
+#                 mRowCount = mRowCount + 1
+#         isOver = "yes"
+#         print("write works")
+
+
+
+#file.write('\n')
+
+
+# Global variables and function call
