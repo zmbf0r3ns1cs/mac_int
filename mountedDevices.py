@@ -16,10 +16,10 @@ global a, b, output
 # Define strings
 d = []
 e = []
-volList = []
-crList = []
-fsList = []
-lsList = []
+mount_volList = []
+mount_crList = []
+mount_fsList = []
+mount_lsList = []
 string1 = "None"
 
 # Define variables
@@ -60,11 +60,11 @@ while end != "yes":
             string1 = str(d[pos])
             pos = pos + 1
             if counter == 0:
-                volList.append(string1)
-                volLength: int = len(volList)
+                mount_volList.append(string1)
+                volLength: int = len(mount_volList)
             elif counter == 1:
-                crList.append(string1)
-                crLength: int = len(crList)
+                mount_crList.append(string1)
+                crLength: int = len(mount_crList)
             else:
                 continue
         counter = counter + 1
@@ -78,22 +78,22 @@ while end != "yes":
                 b = sls
             else:
                 end = "yes"
-            cursor.execute("SELECT {} FROM {} WHERE kMDItemKind='Volume' AND kMDItemDisplayName =?".format(a, b), (str(volList[y]),))
+            cursor.execute("SELECT {} FROM {} WHERE kMDItemKind='Volume' AND kMDItemDisplayName =?".format(a, b), (str(mount_volList[y]),))
             output = cursor.fetchall()
             e.clear()
             for (row) in output:
                 e.append(str(row[0]))
             if counter == 2:
-                fsList.append(str(e))
-                fsLength: int = len(fsList)
+                mount_fsList.append(str(e))
+                fsLength: int = len(mount_fsList)
                 if y == (volLength - 1):
                     y = 0
                     counter = counter + 1
                 else:
                      y = y + 1
             elif counter == 3:
-                lsList.append(str(e))
-                lsLength: int = len(lsList)
+                mount_lsList.append(str(e))
+                lsLength: int = len(mount_lsList)
                 if y == (volLength - 1):
                     y = 0
                     counter = counter + 1
@@ -107,10 +107,10 @@ m = 0
 z = 0
 while m < (volLength):
 
-    file.write("\t-Volume Name: " + str(volList[z]) + "\n" + "\t\tVolume created on: " + str(
-        crList[z]) + "\n" + "\t\tVolume first seen on: " + str(
-        fsList[z]) + "\n" + "\t\tVolume last seen on: " + str(
-        lsList[z]) + "\n")## + "\t\tBash Command: " + str(Matrix[mVolCount][mRowCount]) + "\n")
+    file.write("\t-Volume Name: " + str(mount_volList[z]) + "\n" + "\t\tVolume created on: " + str(
+        mount_crList[z]) + "\n" + "\t\tVolume first seen on: " + str(
+        mount_fsList[z]) + "\n" + "\t\tVolume last seen on: " + str(
+        mount_lsList[z]) + "\n")## + "\t\tBash Command: " + str(Matrix[mVolCount][mRowCount]) + "\n")
     m = m + 1
     z = z + 1
 
@@ -120,14 +120,14 @@ b = "None"
 output = None
 
 
-# Below is matrix stuff
 
 
 
-# Matrix = [[volList],
-#           [crList],
-#           [fsList],
-#           [lsList]]
+
+# Matrix = [[mount_volList],
+#           [mount_crList],
+#           [mount_fsList],
+#           [mount_lsList]]
 
 # mVolCount = 0  # First Value (mColCount, mRowCount)
 # mRowCount = 0  # Second Value
