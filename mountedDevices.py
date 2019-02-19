@@ -46,14 +46,18 @@ output = None
 userSearch = input("What User? (Enter for default All): ")
 print("Starting Mounted Volume Parsing for " + str(userSearch) + "...")
 
+# Define variables for table
 while end != "yes":
     if (counter == 0) or (counter == 1):
+        # Define Volume Name List Variables
         if counter == 0:
             a = n
             b = ri
+        # Define Created Date List Variables
         elif counter == 1:
             a = i
             b = ri
+        # SQLite Search Start
         cursor.execute("SELECT {} FROM {} WHERE Type='VOLUME' AND User=?".format(a, b), (userSearch,))
         output = cursor.fetchall()
         d.clear()
@@ -63,32 +67,38 @@ while end != "yes":
         for (row) in output:
             string1 = str(d[pos])
             pos = pos + 1
+            # Volume Name List Start
             if counter == 0:
                 mount_volList.append(string1)
                 volLength: int = len(mount_volList)
+            # Created Date List Start
             elif counter == 1:
                 mount_crList.append(string1)
                 crLength: int = len(mount_crList)
             else:
                 continue
         counter = counter + 1
+    # Define variables for table
     elif (counter == 2) or (counter == 3):
         while y < volLength:
+            # Define First Seen List Variables
             if counter == 2:
                 a = icd
                 b = sls
+            # Define Last Seen List Variables
             elif counter == 3:
                 a = du
                 b = sls
             else:
                 counter = counter + 1
-
+            # SQLite Search Start
             cursor.execute("SELECT {} FROM {} WHERE kMDItemKind='Volume' AND kMDItemDisplayName =?".format(a, b), (str(
                 mount_volList[y]),))
             output = cursor.fetchall()
             e.clear()
             for (row) in output:
                 e.append(str(row[0]))
+            # First Seen List Start
             if counter == 2:
                 mount_fsList.append(str(e))
                 fsLength: int = len(mount_fsList)
@@ -97,6 +107,7 @@ while end != "yes":
                     counter = counter + 1
                 else:
                      y = y + 1
+            # Last Seen List Start
             elif counter == 3:
                 mount_lsList.append(str(e))
                 lsLength: int = len(mount_lsList)
@@ -107,12 +118,12 @@ while end != "yes":
                      y = y + 1
             else:
                 y = (volLength + 1)
-                #counter = counter +1
-                #end = "yes"
     else:
+        # Define variables for Bash Commands
         while L < volLength:
             a = sc
             b = bs
+            # SQLite Search Start
             cursor.execute("SELECT {} FROM {} WHERE User = ? AND All_Commands LIKE ?".format(a, b),
                            (userSearch, '%' + str(mount_volList[L]) + '%',))
             bashOutput = cursor.fetchall()
@@ -126,8 +137,8 @@ while end != "yes":
 m = 0
 z = 0
 
+# Begin writing output
 while m < (volLength):
-
     file.write("\t-Volume Name: " + str(mount_volList[z]) + "\n" + "\t\tVolume created on: " + str(
         mount_crList[z]) + "\n" + "\t\tVolume first seen on: " + str(
         mount_fsList[z]) + "\n" + "\t\tVolume last seen on: " + str(
@@ -136,8 +147,10 @@ while m < (volLength):
     m = m + 1
     z = z + 1
 
-
+# Global Variables
 a = "None"
 b = "None"
 output = None
+
+# End Parsing
 print("Mounted Volume Parsing Completed!")
