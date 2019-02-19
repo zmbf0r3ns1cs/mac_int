@@ -1,13 +1,13 @@
-# Query Logic for Mounted Devices/Volumes v0.8
-# Justin Boncaldo, Zachary Burnham 2019
+# Query Logic for Mounted Devices/Volumes v0.9
+# Justin Boncaldo, Zachary Burnham (@zmbf0r3ns1cs) 2019
 # ----------------------------------------------------------
 
 import sqlite3
 import re
 
 # Specify files here for testing
-file = open('E:\\CAPSTONE\\Mac_apt_Output-20190117T201041Z-001\\Mac_apt_Output\\exampleWrite.txt', 'w+')
-connection = sqlite3.connect('E:\\CAPSTONE\\Mac_apt_Output-20190117T201041Z-001\\Mac_apt_Output\\mac_apt02.db')
+file = open('C:\\Users\\burnh\\Desktop\\Capstone\\Mac_apt_Output\\exampleWrite.txt', 'w+')
+connection = sqlite3.connect('C:\\Users\\burnh\\Desktop\\Capstone\\Mac_apt_Output\\mac_apt02.db')
 cursor = connection.cursor()
 
 # Mounted Volume variables
@@ -16,10 +16,12 @@ global a, b, output
 # Define strings
 d = []
 e = []
+f = []
 mount_volList = []
 mount_crList = []
 mount_fsList = []
 mount_lsList = []
+mount_bashList = []
 string1 = "None"
 
 # Define variables
@@ -34,6 +36,7 @@ n = "Name"
 
 # Define counters
 y = 0
+L = 0
 x = "first"
 end = "no"
 counter = 0
@@ -41,9 +44,10 @@ output = None
 
 # Username search (may be in main function, TBD)
 userSearch = input("What User? (Enter for default All): ")
+print("Starting Mounted Volume Parsing for " + str(userSearch) + "...")
 
 while end != "yes":
-    if counter < 2:
+    if (counter == 0) or (counter == 1):
         if counter == 0:
             a = n
             b = ri
@@ -68,7 +72,7 @@ while end != "yes":
             else:
                 continue
         counter = counter + 1
-    else:
+    elif (counter == 2) or (counter == 3):
         while y < volLength:
             if counter == 2:
                 a = icd
@@ -77,8 +81,10 @@ while end != "yes":
                 a = du
                 b = sls
             else:
-                end = "yes"
-            cursor.execute("SELECT {} FROM {} WHERE kMDItemKind='Volume' AND kMDItemDisplayName =?".format(a, b), (str(mount_volList[y]),))
+                counter = counter + 1
+
+            cursor.execute("SELECT {} FROM {} WHERE kMDItemKind='Volume' AND kMDItemDisplayName =?".format(a, b), (str(
+                mount_volList[y]),))
             output = cursor.fetchall()
             e.clear()
             for (row) in output:
@@ -101,16 +107,32 @@ while end != "yes":
                      y = y + 1
             else:
                 y = (volLength + 1)
-                end = "yes"
+                #counter = counter +1
+                #end = "yes"
+    else:
+        while L < volLength:
+            a = sc
+            b = bs
+            cursor.execute("SELECT {} FROM {} WHERE User = ? AND All_Commands LIKE ?".format(a, b),
+                           (userSearch, '%' + str(mount_volList[L]) + '%',))
+            bashOutput = cursor.fetchall()
+            f.clear()
+            for row in bashOutput:
+                f.append(str(row[0]))
+            mount_bashList.append(str(f))
+            L = L + 1
+        end = "yes"
 
 m = 0
 z = 0
+
 while m < (volLength):
 
     file.write("\t-Volume Name: " + str(mount_volList[z]) + "\n" + "\t\tVolume created on: " + str(
         mount_crList[z]) + "\n" + "\t\tVolume first seen on: " + str(
         mount_fsList[z]) + "\n" + "\t\tVolume last seen on: " + str(
-        mount_lsList[z]) + "\n")## + "\t\tBash Command: " + str(Matrix[mVolCount][mRowCount]) + "\n")
+        mount_lsList[z]) + "\n" + "\t\tBash Command: " + str(
+        mount_bashList[z]) + "\n")
     m = m + 1
     z = z + 1
 
@@ -118,47 +140,4 @@ while m < (volLength):
 a = "None"
 b = "None"
 output = None
-
-
-
-
-
-
-# Matrix = [[mount_volList],
-#           [mount_crList],
-#           [mount_fsList],
-#           [mount_lsList]]
-
-# mVolCount = 0  # First Value (mColCount, mRowCount)
-# mRowCount = 0  # Second Value
-#isOver = "no"
-#
-#     file.write("\t-Volume Name: " + str(Matrix[mVolCount][mRowCount]) + "\n" + "\t\tVolume created on: " + str(
-#         Matrix[mVolCount][mRowCount]) + "\n" + "\t\tVolume first seen on: " + str(
-#         Matrix[mVolCount][mRowCount]) + "\n" + "\t\tVolume last seen on: " + str(
-#         Matrix[mVolCount][mRowCount]) + "\n")## + "\t\tBash Command: " + str(Matrix[mVolCount][mRowCount]) + "\n")
-#     print("Inside function")
-#     file.close
-#
-#
-# while isOver != "yes":
-#     while mVolCount < (volLength + 1):
-#
-#         while mRowCount < 4:
-#             if mVolCount < volLength:
-#                 test()
-#                 print(mVolCount)
-#                 print(volLength)
-#                 mVolCount = mVolCount + 1
-#             elif mVolCount == volLength:
-#                 mVolCount = 0
-#                 mRowCount = mRowCount + 1
-#         isOver = "yes"
-#         print("write works")
-
-
-
-#file.write('\n')
-
-
-# Global variables and function call
+print("Mounted Volume Parsing Completed!")
