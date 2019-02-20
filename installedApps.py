@@ -1,4 +1,4 @@
-# Query Logic for Mounted Devices/Volumes v0.9
+# Query Logic for Installed Applications v0.1
 # Justin Boncaldo, Zachary Burnham (@zmbf0r3ns1cs) 2019
 # ----------------------------------------------------------
 
