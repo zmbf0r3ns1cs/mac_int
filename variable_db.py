@@ -1,5 +1,3 @@
-
-
 # Lists
 mount_volList = []
 mount_crList = []
@@ -42,7 +40,6 @@ sls = "'Spotlight-1-store'"
 bs = "BashSessions"
 S = 'Safari'
 
-
 # Columns
 sc = "Session_Commands"
 du = "Date_Updated"
@@ -71,9 +68,7 @@ url = "URL"
 dL = 'DOWNLOAD'
 NoT = 'Name_or_Title'
 
-
 string1 = "None"
-
 
 # Values
 macOS = "macOS Installer"
