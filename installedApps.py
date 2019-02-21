@@ -4,7 +4,7 @@
 
 import sqlite3
 import re
-from Variable_DB import *
+from variable_db import *
 
 # Specify files here for testing
 file = open('E:\\CAPSTONE\\Mac_apt_Output-20190117T201041Z-001\\Mac_apt_Output\\exampleWrite.txt', 'w+')
