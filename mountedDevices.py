@@ -4,10 +4,11 @@
 
 import sqlite3
 import re
+from Variable_DB import *
 
 # Specify files here for testing
-file = open('C:\\Users\\burnh\\Desktop\\Capstone\\Mac_apt_Output\\exampleWrite.txt', 'w+')
-connection = sqlite3.connect('C:\\Users\\burnh\\Desktop\\Capstone\\Mac_apt_Output\\mac_apt02.db')
+file = open('E:\\CAPSTONE\\Mac_apt_Output-20190117T201041Z-001\\Mac_apt_Output\\exampleWrite.txt', 'w+')
+connection = sqlite3.connect('E:\\CAPSTONE\\Mac_apt_Output-20190117T201041Z-001\\Mac_apt_Output\\mac_apt02.db')
 cursor = connection.cursor()
 
 # Mounted Volume variables
@@ -17,22 +18,7 @@ global a, b, output
 d = []
 e = []
 f = []
-mount_volList = []
-mount_crList = []
-mount_fsList = []
-mount_lsList = []
-mount_bashList = []
-string1 = "None"
 
-# Define variables
-i = "Info"
-ri = "RecentItems"
-icd = "_kMDItemCreationDate"
-sls = "'Spotlight-1-store'"
-du = "Date_Updated"
-sc = "Session_Commands"
-bs = "BashSessions"
-n = "Name"
 
 # Define counters
 y = 0
