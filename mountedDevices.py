@@ -1,4 +1,4 @@
-# Query Logic for Mounted Devices/Volumes v0.9
+# Query Logic for Mounted Devices/Volumes v0.11
 # Justin Boncaldo, Zachary Burnham (@zmbf0r3ns1cs) 2019
 # ----------------------------------------------------------
 
@@ -7,25 +7,23 @@ import re
 from variable_db import *
 
 # Specify files here for testing
-file = open('E:\\CAPSTONE\\Mac_apt_Output-20190117T201041Z-001\\Mac_apt_Output\\exampleWrite.txt', 'w+')
-connection = sqlite3.connect('E:\\CAPSTONE\\Mac_apt_Output-20190117T201041Z-001\\Mac_apt_Output\\mac_apt02.db')
+file = open('C:\\Users\\burnh\\Desktop\\Capstone\\Mac_apt_Output\\exampleWrite.txt', 'w+')
+connection = sqlite3.connect('C:\\Users\\burnh\Desktop\\Capstone\\Mac_apt_Output\\mac_apt02.db')
 cursor = connection.cursor()
 
 # Mounted Volume variables
 global a, b, output
 
-# Define strings
+# Define lists
 d = []
 e = []
 f = []
 
-
-# Define counters
-y = 0
-L = 0
-x = "first"
-end = "no"
+# Define counters for list positions
+y = 0 # volList list position
 counter = 0
+
+end = "no" # Runs while loop (EVERYTHING)
 output = None
 
 # Username search (may be in main function, TBD)
@@ -37,10 +35,12 @@ while end != "yes":
     if (counter == 0) or (counter == 1):
         # Define Volume Name List Variables
         if counter == 0:
+            print("[*] Finding Volumes...")
             a = n
             b = ri
         # Define Created Date List Variables
         elif counter == 1:
+            print("[~] Finding their Creation Dates...")
             a = i
             b = ri
         # SQLite Search Start
@@ -69,10 +69,12 @@ while end != "yes":
         while y < volLength:
             # Define First Seen List Variables
             if counter == 2:
+                print("[~] Finding First Seen Date for Volume " + str(y) + "...")
                 a = icd
                 b = sls
             # Define Last Seen List Variables
             elif counter == 3:
+                print("[~] Finding Last Seen Date for Volume " + str(y) + "...")
                 a = du
                 b = sls
             else:
@@ -104,32 +106,26 @@ while end != "yes":
                      y = y + 1
             else:
                 y = (volLength + 1)
-    else:
-        # Define variables for Bash Commands
-        while L < volLength:
-            a = sc
-            b = bs
-            # SQLite Search Start
-            cursor.execute("SELECT {} FROM {} WHERE User = ? AND All_Commands LIKE ?".format(a, b),
-                           (userSearch, '%' + str(mount_volList[L]) + '%',))
-            bashOutput = cursor.fetchall()
-            f.clear()
-            for row in bashOutput:
-                f.append(str(row[0]))
-            mount_bashList.append(str(f))
-            L = L + 1
+        # Get out of entire MAIN WHILE Loop
         end = "yes"
 
-m = 0
-z = 0
+# Define variables for output counting
+m = 0 # Counter for volLength
+z = 0 # List Position
 
 # Begin writing output
+print("[~] Making all this data pretty...")
 while m < (volLength):
     file.write("\t-Volume Name: " + str(mount_volList[z]) + "\n" + "\t\tVolume created on: " + str(
         mount_crList[z]) + "\n" + "\t\tVolume first seen on: " + str(
         mount_fsList[z]) + "\n" + "\t\tVolume last seen on: " + str(
-        mount_lsList[z]) + "\n" + "\t\tBash Command: " + str(
-        mount_bashList[z]) + "\n")
+        mount_lsList[z]) + "\n")
+    # Additional IF statement for identifying devices present during forensic acquisition
+    # This is based off the presence/absence of Spotlight Data values for each drive
+    if str(mount_fsList[z]) == "[]":
+        file.write('\t\t' + mount_volList[z] + ' was not present during forensic acquisition\n')
+    else:
+        file.write('\t\t' + mount_volList[z] + ' was present during forensic acquisition\n')
     m = m + 1
     z = z + 1
 
@@ -138,5 +134,5 @@ a = "None"
 b = "None"
 output = None
 
-# End Parsing
-print("Mounted Volume Parsing Completed!")
+# End Parsing, finally.
+print("[*] Mounted Volume Parsing Completed!")
