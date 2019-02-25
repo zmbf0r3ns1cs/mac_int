@@ -37,8 +37,9 @@ while end != "yes":
     # 3 - 6 = DockItems
     # 7 - 13 = NetUsage
     # Round 2 includes RecentItems, Safari, BashSessions, and Quarantine
-    # 14 -15 = RecentItems
-    # 16
+    # 14 - 15 = RecentItems
+    # 16 - 17 = Safari
+    # 18 - 20 = Quarantine
     if counter in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13):
         while counter in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13):
             if counter == 0:
@@ -225,35 +226,46 @@ while end != "yes":
                     continue
             counter = counter + 1
 
-    # if counter == 16:
-    #     while counter == 16:
-    #         if counter == 16:
-    #             a = NoT
-    #             b = S
-    #             c = T
-    #             g = u
-    #             h = dL
-    #             i = userSearch
-    #
-    #         cursor.execute("SELECT {} FROM {} WHERE {}=? AND {}=?".format(a, b, c, g), (h, i))
-    #         output = cursor.fetchall()
-    #         d.clear()
-    #         for row in output:
-    #             d.append(str(row[0]))
-    #         pos = 0
-    #         for (row) in output:
-    #             string1 = str(d[pos])
-    #             print("String " + str(string1))
-    #             pos = pos + 1
-    #             # Volume Name List Start
-    #             if counter == 16:
-    #                 inst_SNoT_List.append(string1)
-    #                 pNLength1: int = len(inst_SNoT_List)
-    #             else:
-    #                 continue
-    #         counter = counter + 1
+    if counter == 18: # Chnage to if counter in 18, 19, 20
+        if counter == 18:
+            a =
+            b =
+            c =
+            g =
+            h = userSearch
+            i =
 
-#----------------------
+            while y < volLength:
+                # Define First Seen List Variables
+                if counter == 2:
+                    print("[~] Finding First Seen Date for Volume " + str(y) + "...")
+                    a = icd
+                    b = sls
+                # Define Last Seen List Variables
+                elif counter == 3:
+                    print("[~] Finding Last Seen Date for Volume " + str(y) + "...")
+                    a = du
+                    b = sls
+                else:
+                    counter = counter + 1
+                # SQLite Search Start
+                cursor.execute("SELECT {} FROM {} WHERE kMDItemKind='Volume' AND kMDItemDisplayName =?".format(a, b),
+                               (str(
+                                   mount_volList[y]),))
+                output = cursor.fetchall()
+                e.clear()
+                for (row) in output:
+                    e.append(str(row[0]))
+                # First Seen List Start
+                if counter == 2:
+                    mount_fsList.append(str(e))
+                    fsLength: int = len(mount_fsList)
+                    if y == (volLength - 1):
+                        y = 0
+                        counter = counter + 1
+                    else:
+                        y = y + 1
+        #----------------------
     print(str(counter))
     # print("macOS Installer Instance: " + str(inst_processName1List))
     # print("Software Updated Instance: " + str(inst_processName2List))
