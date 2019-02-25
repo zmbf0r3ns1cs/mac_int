@@ -28,18 +28,18 @@ output = None
 
 # Username search (may be in main function, TBD)
 userSearch = input("What User? (Enter for default All): ")
-print("Starting Mounted Volume Parsing for " + str(userSearch) + "...")
 
 # Define variables for table
 while end != "yes":
     if (counter == 0) or (counter == 1):
         # Define Volume Name List Variables
         if counter == 0:
-            print("[*] Finding Volumes...")
+            print("[~] Finding Volumes for " + str(userSearch) + "...")
             a = n
             b = ri
         # Define Created Date List Variables
         elif counter == 1:
+            print("[*] " + str(volLength) + " volumes were found!")
             print("[~] Finding their Creation Dates...")
             a = i
             b = ri
@@ -136,3 +136,64 @@ output = None
 
 # End Parsing, finally.
 print("[*] Mounted Volume Parsing Completed!")
+
+# mountedDevice.py variables
+x = mount_volList
+
+# Run Bash Session connections
+for row in x:  # mount_volList in mountedDevices.py file
+    L = 0
+    # SQLite Search for Session Commands
+    print("Made it to Session Commands, hi!")
+    a = sc
+    b = bs
+    cursor.execute("SELECT {} FROM {} WHERE User = ? AND All_Commands LIKE ?".format(a, b), (
+        userSearch, '%' + str(x[L]) + '%',))
+    bashOutput = cursor.fetchall()
+    e.clear()
+    for i in bashOutput:
+        e.append(str(i[0]))
+        pos = 0
+        string1 = str(i[pos])
+        pos = pos + 1
+        mount_bashList.append(string1)
+    L = L + 1
+    L = 0
+    
+    # SQLite Search for Session Start
+    print("Made it Session Start")
+    a = ss
+    b = bs
+    cursor.execute("SELECT {} FROM {} WHERE User = ? AND All_Commands LIKE ?".format(a, b), (
+        userSearch, '%' + str(x[L]) + '%',))
+    bashOutput = cursor.fetchall()
+    e.clear()
+    for i in bashOutput:
+        e.append(str(i[0]))
+        pos = 0
+        string1 = str(i[pos])
+        pos = pos + 1
+        mount_ssList.append(string1)
+    L = L + 1
+    L = 0
+
+    # SQLite Search for Session End
+    print("Made it to Session End")
+    a = se
+    b = bs
+    cursor.execute("SELECT {} FROM {} WHERE User = ? AND All_Commands LIKE ?".format(a, b), (
+        userSearch, '%' + str(x[L]) + '%',))
+    bashOutput = cursor.fetchall()
+    e.clear()
+    for i in bashOutput:
+        e.append(str(i[0]))
+        pos = 0
+        string1 = str(i[pos])
+        pos = pos + 1
+        mount_seList.append(string1)
+    L = L + 1
+    L = 0
+
+file.write("\t\t" + str(mount_bashList) + "\n")
+file.write("\t\t" + str(mount_ssList) + "\n")
+file.write("\t\t" + str(mount_seList) + "\n")
