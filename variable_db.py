@@ -5,6 +5,8 @@ mount_crList = []
 mount_fsList = []
 mount_lsList = []
 mount_bashList = []
+mount_ssList = []
+mount_seList = []
 inst_fLList = []
 inst_pMList = []
 inst_fMList = []
@@ -43,6 +45,8 @@ S = 'Safari'
 
 # Columns
 sc = "Session_Commands"
+ss = "Session_Start"
+se = "Session_End"
 du = "Date_Updated"
 icd = "_kMDItemCreationDate"
 i = "Info"
