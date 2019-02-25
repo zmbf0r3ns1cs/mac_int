@@ -14,6 +14,8 @@ cursor = connection.cursor()
 # Mounted Volume variables
 global a, b, output
 
+volLength = 0
+
 # Define lists
 d = []
 e = []
@@ -123,9 +125,9 @@ while m < (volLength):
     # Additional IF statement for identifying devices present during forensic acquisition
     # This is based off the presence/absence of Spotlight Data values for each drive
     if str(mount_fsList[z]) == "[]":
-        file.write('\t\t' + mount_volList[z] + ' was not present during forensic acquisition\n')
+        file.write('\t\t' + mount_volList[z] + ' was not imaged during forensic acquisition - possibly a secondary/removable device\n')
     else:
-        file.write('\t\t' + mount_volList[z] + ' was present during forensic acquisition\n')
+        file.write('\t\t' + mount_volList[z] + ' was imaged during forensic acquisition\n')
     m = m + 1
     z = z + 1
 
@@ -144,7 +146,6 @@ x = mount_volList
 for row in x:  # mount_volList in mountedDevices.py file
     L = 0
     # SQLite Search for Session Commands
-    print("Made it to Session Commands, hi!")
     a = sc
     b = bs
     cursor.execute("SELECT {} FROM {} WHERE User = ? AND All_Commands LIKE ?".format(a, b), (
@@ -161,7 +162,6 @@ for row in x:  # mount_volList in mountedDevices.py file
     L = 0
     
     # SQLite Search for Session Start
-    print("Made it Session Start")
     a = ss
     b = bs
     cursor.execute("SELECT {} FROM {} WHERE User = ? AND All_Commands LIKE ?".format(a, b), (
@@ -178,7 +178,6 @@ for row in x:  # mount_volList in mountedDevices.py file
     L = 0
 
     # SQLite Search for Session End
-    print("Made it to Session End")
     a = se
     b = bs
     cursor.execute("SELECT {} FROM {} WHERE User = ? AND All_Commands LIKE ?".format(a, b), (
