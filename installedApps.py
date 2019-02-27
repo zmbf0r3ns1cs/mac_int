@@ -399,7 +399,6 @@ while end != "yes":
                 elif counter == 39:
                     inst_ida2_List.append(string1)
                 elif counter == 30:
-                    print("Got to end")
                     inst_iwf2_List.append(string1)
                 else:
                     continue
@@ -446,10 +445,6 @@ while end != "yes":
             counter = counter + 1
     else:
         end = "yes"
-        print(counter)
-        print("Surpassed End")
-
-
 
 
 
@@ -491,6 +486,7 @@ while end != "yes":
     #             y = y + 1
 
     # #     #----------------------
+print("System-wide items")
 print("macOS Installer Instance: " + str(inst_processName1List))
 print("macOS Installer Date: " + str(inst_date1List))
 print("Software Updated Instance: " + str(inst_processName2List))
@@ -508,12 +504,14 @@ print("WifiIn: " + str(inst_wifiIn_List))
 print("WifiOut: " + str(inst_wifiOut_List))
 print("WiredIn: " + str(inst_wiredIn_List))
 print("WireOut: " + str(inst_wiredOut_List))
+print("\n")
+print("User Specific items")
 print("Recently Used Apps: " + str(inst_recentIName_List))
 print("Recently Used App URL: " + str(inst_recentIURL_List))
 print("File Download from Safari: " + str(inst_SNoT_List))
 print("File Download from Safari: " + str(inst_sURL_List))
 print("\n")
-print("Unix Executables:")
+print("User's Unix Executables:")
 print("Item Display Name: " + str(inst_idn_List))
 print("Item File Name: " + str(inst_ifn_List))
 print("Item Kind: " + str(inst_ik_List))
@@ -521,7 +519,7 @@ print("Physical Size: " + str(inst_ps_List))
 print("Item Date Added: " + str(inst_ida_List))
 print("Item Where from: " + str(inst_iwf_List))
 print("\n")
-print("Microsoft Windows Executables:")
+print("User's Microsoft Windows Executables:")
 print("Item Display Name: " + str(inst_idn2_List))
 print("Item File Name: " + str(inst_ifn2_List))
 print("Item Kind: " + str(inst_ik2_List))
