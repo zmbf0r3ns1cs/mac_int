@@ -7,8 +7,8 @@ import re
 from variable_db import *
 
 # Specify files here for testing
-file = open('C:\\Users\\burnh\\Desktop\\Capstone\\Mac_apt_Output\\exampleWrite.txt', 'w+')
-connection = sqlite3.connect('C:\\Users\\burnh\Desktop\\Capstone\\Mac_apt_Output\\mac_apt02.db')
+file = open('/Users/zachburnham/Desktop/Capstone/Mac_apt_Output/exampleWrite.txt', 'w+')
+connection = sqlite3.connect('/Users/zachburnham/Desktop/Capstone/Mac_apt_Output/mac_apt02.db')
 cursor = connection.cursor()
 
 # Mounted Volume variables
@@ -46,7 +46,7 @@ while end != "yes":
             a = i
             b = ri
         # SQLite Search Start
-        cursor.execute("SELECT {} FROM {} WHERE Type='VOLUME' AND User=?".format(a, b), (userSearch,))
+        cursor.execute('SELECT "{}" FROM "{}" WHERE Type="VOLUME" AND User=?'.format(a, b), (userSearch,))
         output = cursor.fetchall()
         d.clear()
         for row in output:
@@ -82,7 +82,7 @@ while end != "yes":
             else:
                 counter = counter + 1
             # SQLite Search Start
-            cursor.execute("SELECT {} FROM {} WHERE kMDItemKind='Volume' AND kMDItemDisplayName =?".format(a, b), (str(
+            cursor.execute('SELECT "{}" FROM "{}" WHERE kMDItemKind="Volume" AND kMDItemDisplayName =?'.format(a, b), (str(
                 mount_volList[y]),))
             output = cursor.fetchall()
             e.clear()
@@ -148,7 +148,7 @@ for row in x:  # mount_volList in mountedDevices.py file
     # SQLite Search for Session Commands
     a = sc
     b = bs
-    cursor.execute("SELECT {} FROM {} WHERE User = ? AND All_Commands LIKE ?".format(a, b), (
+    cursor.execute('SELECT "{}" FROM "{}" WHERE User = ? AND All_Commands LIKE ?'.format(a, b), (
         userSearch, '%' + str(x[L]) + '%',))
     bashOutput = cursor.fetchall()
     e.clear()
@@ -164,7 +164,7 @@ for row in x:  # mount_volList in mountedDevices.py file
     # SQLite Search for Session Start
     a = ss
     b = bs
-    cursor.execute("SELECT {} FROM {} WHERE User = ? AND All_Commands LIKE ?".format(a, b), (
+    cursor.execute('SELECT "{}" FROM "{}" WHERE User = ? AND All_Commands LIKE ?'.format(a, b), (
         userSearch, '%' + str(x[L]) + '%',))
     bashOutput = cursor.fetchall()
     e.clear()
@@ -180,7 +180,7 @@ for row in x:  # mount_volList in mountedDevices.py file
     # SQLite Search for Session End
     a = se
     b = bs
-    cursor.execute("SELECT {} FROM {} WHERE User = ? AND All_Commands LIKE ?".format(a, b), (
+    cursor.execute('SELECT "{}" FROM "{}" WHERE User = ? AND All_Commands LIKE ?'.format(a, b), (
         userSearch, '%' + str(x[L]) + '%',))
     bashOutput = cursor.fetchall()
     e.clear()
