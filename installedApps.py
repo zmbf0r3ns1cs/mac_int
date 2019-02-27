@@ -8,8 +8,8 @@ from variable_db import *
 #from mountedDevices import *
 
 # Specify files here for testing
-file = open('E:\\CAPSTONE\\Mac_apt_Output-20190117T201041Z-001\\Mac_apt_Output\\exampleWrite.txt', 'w+')
-connection = sqlite3.connect('E:\\CAPSTONE\\Mac_apt_Output-20190117T201041Z-001\\Mac_apt_Output\\mac_apt02.db')
+file = open('/Users/zachburnham/Desktop/Capstone/Mac_apt_Output/exampleWrite.txt', 'w+')
+connection = sqlite3.connect('/Users/zachburnham/Desktop/Capstone/Mac_apt_Output/mac_apt02.db')
 cursor = connection.cursor()
 
 # Mounted Volume variables
@@ -99,7 +99,7 @@ while endGen != "yes":
                 c = T
                 g = App
 
-            cursor.execute("SELECT {} FROM {} WHERE {}=?".format(a, b, c), (g,))
+            cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=?'.format(a, b, c), (g,))
             output = cursor.fetchall()
             d.clear()
             for row in output:
@@ -210,7 +210,7 @@ while end != "yes":
                 h = userSearch
                 i = appCode
 
-            cursor.execute("SELECT {} FROM {} WHERE {}=? AND {}=?".format(a, b, c, g), (h, i))
+            cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=? AND "{}"=?'.format(a, b, c, g), (h, i))
             output = cursor.fetchall()
             d.clear()
             for row in output:
@@ -251,7 +251,7 @@ while end != "yes":
     # Spotlight database for individual has to reference Users first for UID
     if counter == 18:
         # Need to find user's UID first from Users table
-        cursor.execute("SELECT UID FROM Users WHERE Username=?", (userSearch,))
+        cursor.execute('SELECT UID FROM Users WHERE Username=?', (userSearch,))
         output = cursor.fetchall()
         d.clear()
         for row in output:
@@ -309,7 +309,7 @@ while end != "yes":
                 g = ict
                 h = str(inst_userUID_List[0])
                 i = pue
-            cursor.execute("SELECT {} FROM {} WHERE {}=? AND {}=?".format(a, b, c, g), (h, i))
+            cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=? AND "{}"=?'.format(a, b, c, g), (h, i))
             output = cursor.fetchall()
             d.clear()
             for row in output:
@@ -379,7 +379,7 @@ while end != "yes":
                 g = ict
                 h = str(inst_userUID_List[0])
                 i = cmwe
-            cursor.execute("SELECT {} FROM {} WHERE {}=? AND {}=?".format(a, b, c, g), (h, i))
+            cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=? AND "{}"=?'.format(a, b, c, g), (h, i))
             output = cursor.fetchall()
             d.clear()
             for row in output:
@@ -421,7 +421,7 @@ while end != "yes":
                 b = ih
                 c = pN
                 g = installer
-            cursor.execute("SELECT {} FROM {} WHERE {}=?".format(a, b, c), (g,))
+            cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=?'.format(a, b, c), (g,))
             output = cursor.fetchall()
             d.clear()
             for row in output:
