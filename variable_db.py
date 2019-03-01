@@ -54,6 +54,8 @@ inst_ik2_List = []   #
 inst_ps2_List = []   #
 inst_iwf2_List = []  #
 inst_ida2_List = []  #
+inst_totalNetUsage_List = []
+
 
 
 # Tables
