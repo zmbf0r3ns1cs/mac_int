@@ -2,3 +2,7 @@
 __pycache__/
 .DS_Store
 .vscode/
+*.pyc
+
+# Test Files
+mac_int-MOUNTEDDEVICES-Output.txt

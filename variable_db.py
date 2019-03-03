@@ -83,7 +83,7 @@ ps = 'kMDItemPhysicalSize'
 iwf = 'kMDItemWhereFroms'
 ida = 'kMDItemDateAdded'
 
-i = "Info"
+i = 'Info'
 fL = 'File Label'
 fT = 'File Type'
 pM = 'Parent Modified'
