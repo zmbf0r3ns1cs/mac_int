@@ -97,6 +97,12 @@ user_totalNetUsage_List = []    #
 user_bashSSList = []            # Bash Sessions
 user_bashSEList = []            #
 user_bashSCList = []            #
+user_riNamevol_List = []        #
+user_riURLvol_List = []         #
+user_riInfovol_List = []        #
+user_riNameplace_List = []      #
+user_riURLplace_List = []       #
+user_riInfoplace_List = []      #
 
 
 # Tables
@@ -153,10 +159,11 @@ dU = "DataURL"
 pue = "public.unix-executable"
 cmwe = "com.microsoft.windows-executable"
 appCode = "41"
-# allusers = '*'
 Homedir = 'Homedir'
-
+volume = "VOLUME"
 string1 = "None"
+User = "User"
+place = "PLACE"
 
 # Values
 macOS = "macOS Installer"

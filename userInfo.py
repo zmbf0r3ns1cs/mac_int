@@ -332,8 +332,8 @@ def userInfo():
                 counter = counter + 1
 
         # Continues spotlight parsing now
-        elif counter in (25, 26, 27, 28, 29, 30):
-            while counter in (25, 26, 27, 28, 29, 30):
+        elif counter in (25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36):
+            while counter in (25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36):
                 if counter == 25:  # Starts checks for com.microsoft
                     a = idn
                     b = sls
@@ -376,6 +376,49 @@ def userInfo():
                     g = ict
                     h = str(user_userUID_List[0])
                     i = cmwe
+                elif counter == 31:  # RecentItems for VOLUMES
+                    a = n
+                    b = ri
+                    c = T
+                    g = User
+                    h = volume
+                    i = userSearch
+                elif counter == 32:
+                    a = url
+                    b = ri
+                    c = T
+                    g = User
+                    h = volume
+                    i = userSearch
+                elif counter == 33:
+                    a = i
+                    b = ri
+                    c = T
+                    g = User
+                    h = volume
+                    i = userSearch
+                elif counter == 34:  # RecentItems for PLACE
+                    a = n
+                    b = ri
+                    c = T
+                    g = User
+                    h = place
+                    i = userSearch
+                elif counter == 35:
+                    a = url
+                    b = ri
+                    c = T
+                    g = User
+                    h = place
+                    i = userSearch
+                elif counter == 36:
+                    a = i
+                    b = ri
+                    c = T
+                    g = User
+                    h = place
+                    i = userSearch
+
                 else:
                     print("A counting error has occurred")
                 cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=? AND "{}"=?'.format(a, b, c, g), (h, i))
@@ -400,23 +443,35 @@ def userInfo():
                         user_ida2_List.append(string1)
                     elif counter == 30:
                         user_iwf2_List.append(string1)
+                    elif counter == 31:
+                        user_riNamevol_List.append(string1)
+                    elif counter == 32:
+                        user_riURLvol_List.append(string1)
+                    elif counter == 33:
+                        user_riInfovol_List.append(string1)
+                    elif counter == 34:
+                        user_riNameplace_List.append(string1)
+                    elif counter == 35:
+                        user_riURLplace_List.append(string1)
+                    elif counter == 36:
+                        user_riInfoplace_List.append(string1)
                     else:
                         continue
                 counter = counter + 1
 
-        elif counter in (31, 32, 33):
-            while counter in (31, 32, 33):
-                if counter == 31:
+        elif counter in (37, 38, 39):           # Must change to fit new additions
+            while counter in (37, 38, 39):
+                if counter == 37:
                     a = date
                     b = ih
                     c = pN
                     g = macOS
-                elif counter == 32:
+                elif counter == 38:
                     a = date
                     b = ih
                     c = pN
                     g = softwareupdated
-                elif counter == 33:
+                elif counter == 39:
                     a = date
                     b = ih
                     c = pN
@@ -433,13 +488,13 @@ def userInfo():
                     string1 = str(d[pos])
                     pos = pos + 1
                     # Volume Name List Start
-                    if counter == 31:
+                    if counter == 37:
                         user_date1List.append(string1)
                         user_pNLength1: int = len(user_date1List)
-                    elif counter == 32:
+                    elif counter == 38:
                         user_date2List.append(string1)
                         user_pNLength2: int = len(user_date2List)
-                    elif counter == 33:
+                    elif counter == 39:
                         user_date3List.append(string1)
                         user_pNLength3: int = len(user_date3List)
                     else:
