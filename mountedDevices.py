@@ -9,12 +9,15 @@ from variable_db import *
 
 def mountedDevicesRun(output_dir, input_path, user_name):
     # Output file and DB specified in mac_int.py
-    file = open(output_dir + "\\mac_int-MOUNTEDDEVICES-Output.txt", 'w+')
+    file = open(output_dir + "\\mac_int-MOUNTEDVOLUMES-Output.txt", 'w+')
     connection = sqlite3.connect(input_path)
     cursor = connection.cursor()
 
+    # Username search (determined in mac_int.py)
+    userSearch = user_name
+
     # Mounted Volume variables
-    global a, b, output
+    global a, b, i, output
 
     volLength = 0
 
@@ -29,9 +32,6 @@ def mountedDevicesRun(output_dir, input_path, user_name):
     end = "no" # Runs while loop (EVERYTHING)
     output = None
 
-    # Username search (determined in mac_int.py)
-    userSearch = user_name
-
     # Define variables for table
     while end != "yes":
         if (counter == 0) or (counter == 1):
@@ -44,14 +44,12 @@ def mountedDevicesRun(output_dir, input_path, user_name):
             elif counter == 1:
                 print("[*] " + str(volLength) + " volumes were found!")
                 print("[~] Finding their Creation Dates...")
-                # Define here to bypass "local variable 'i' referenced before assignment" error due to nature of while loop within the defined structure
-                i = 'Info'
                 a = i
                 b = ri
             # SQLite Search Start
             cursor.execute('SELECT "{}" FROM "{}" WHERE Type="VOLUME" AND User=?'.format(a, b), (userSearch,))
             output = cursor.fetchall()
-            del d [:]
+            del d[:]
             for row in output:
                 d.append(str(row[0]))
             pos = 0
@@ -88,7 +86,7 @@ def mountedDevicesRun(output_dir, input_path, user_name):
                 cursor.execute('SELECT "{}" FROM "{}" WHERE kMDItemKind="Volume" AND kMDItemDisplayName =?'.format(a, b), (str(
                     mount_volList[y]),))
                 output = cursor.fetchall()
-                del e [:]
+                del e[:]
                 for (row) in output:
                     e.append(str(row[0]))
                 # First Seen List Start
@@ -154,7 +152,7 @@ def mountedDevicesRun(output_dir, input_path, user_name):
         cursor.execute('SELECT "{}" FROM "{}" WHERE User = ? AND All_Commands LIKE ?'.format(a, b), (
             userSearch, '%' + str(x[L]) + '%',))
         bashOutput = cursor.fetchall()
-        del e [:]
+        del e[:]
         for i in bashOutput:
             e.append(str(i[0]))
             pos = 0
@@ -170,7 +168,7 @@ def mountedDevicesRun(output_dir, input_path, user_name):
         cursor.execute('SELECT "{}" FROM "{}" WHERE User = ? AND All_Commands LIKE ?'.format(a, b), (
             userSearch, '%' + str(x[L]) + '%',))
         bashOutput = cursor.fetchall()
-        del e [:]
+        del e[:]
         for i in bashOutput:
             e.append(str(i[0]))
             pos = 0
@@ -186,7 +184,7 @@ def mountedDevicesRun(output_dir, input_path, user_name):
         cursor.execute('SELECT "{}" FROM "{}" WHERE User = ? AND All_Commands LIKE ?'.format(a, b), (
             userSearch, '%' + str(x[L]) + '%',))
         bashOutput = cursor.fetchall()
-        del e [:]
+        del e[:]
         for i in bashOutput:
             e.append(str(i[0]))
             pos = 0
