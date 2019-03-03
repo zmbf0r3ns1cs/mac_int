@@ -13,12 +13,12 @@ Users of mac_int will have the ability to utilize pre-researched data interpreta
 
 #### Features
 - Cross-Platform (runs on any OS with Python3)
-- Intelligent parsing from mac_apt SQLite Database output
+- Intelligent "connective parsing" from mac_apt SQLite Database output
 - Interpreted data is displayed via HTML format for ease-of-use and readability
 
 ### Modules
 
-mac_int operates off predefined Python3 scripts that are called upon using command arguments. This list is a work in progress - any newly created module can be created and added to the argument parser for mac_int for command line accessibility. Below is a working table describing the current modules and their functionality:
+mac_int operates off pre-defined Python3 scripts that are called upon using command arguments. This list is a work in progress - any newly created module can be created and added to the argument parser for mac_int for command line accessibility. Below is a working table describing the current modules and their functionality:
 
 | Module | Description | mac_apt Connections (Tables) |
 | --- | --- | --- |
