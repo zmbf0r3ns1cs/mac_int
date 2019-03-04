@@ -391,7 +391,7 @@ def userInfo():
                     h = volume
                     i = userSearch
                 elif counter == 33:
-                    a = i
+                    a = "Info"
                     b = ri
                     c = T
                     g = User
@@ -412,7 +412,7 @@ def userInfo():
                     h = place
                     i = userSearch
                 elif counter == 36:
-                    a = i
+                    a = "Info"
                     b = ri
                     c = T
                     g = User
@@ -421,7 +421,7 @@ def userInfo():
 
                 else:
                     print("A counting error has occurred")
-                cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=? AND "{}"=?'.format(a, b, c, g), (h, i))
+                cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=? AND "{}"=?'.format(a, b, c, g), (h, i,))
                 output = cursor.fetchall()
                 d.clear()
                 for row in output:
@@ -459,7 +459,7 @@ def userInfo():
                         continue
                 counter = counter + 1
 
-        elif counter in (37, 38, 39):           # Must change to fit new additions
+        elif counter in (37, 38, 39):
             while counter in (37, 38, 39):
                 if counter == 37:
                     a = date
@@ -503,6 +503,7 @@ def userInfo():
         else:
             end = "yes"
 
+            # Recent Applications Write
             line1 = 0
             writePos1 = 0
             if line1 != len(user_recentIName_List):
@@ -513,6 +514,36 @@ def userInfo():
                 file.write(
                     "\t•'" + str(user_recentIName_List[writePos1]) + "' from the location '" + str(
                         user_recentIURL_List[writePos1]) + "'\n")
+                line1 = line1 + 1
+                writePos1 = writePos1 + 1
+            file.write("\n\n")
+
+            # Recent Volumes Write
+            line1 = 0
+            writePos1 = 0
+            if line1 != len(user_riNamevol_List):
+                file.write(str(userSearch) + " has recently interacted with these volumes:\n")
+            else:
+                file.write(str(userSearch) + " has not recently interacted with any volumes\n")
+            while line1 < len(user_riNamevol_List):
+                file.write(
+                    "\t•'" + str(user_riNamevol_List[writePos1]) + "' from the location '" + str(
+                        user_riURLvol_List[writePos1]) + "' on " + str(user_riInfovol_List[writePos1]) + "\n")
+                line1 = line1 + 1
+                writePos1 = writePos1 + 1
+            file.write("\n\n")
+
+            # Recent Places Write
+            line1 = 0
+            writePos1 = 0
+            if line1 != len(user_riNameplace_List):
+                file.write(str(userSearch) + " has recently visited these places:\n")
+            else:
+                file.write(str(userSearch) + " has no folder activity\n")
+            while line1 < len(user_riNameplace_List):
+                file.write(
+                    "\t•'" + str(user_riNameplace_List[writePos1]) + "' from the location '" + str(
+                        user_riURLplace_List[writePos1]) + "\n")
                 line1 = line1 + 1
                 writePos1 = writePos1 + 1
             file.write("\n\n")
@@ -616,7 +647,8 @@ def userInfo():
 
             while bashWriteCounter < len(user_bashSSList):
                 file.write("\t\tSession " + str(bashSess) + "\n")
-                file.write("\t\tSession Start: " + str(user_bashSSList[L]) + "\n\t\tSession End: " + str(user_bashSEList[L]) + "\n\t\tSession Commands: \n\t\t" + str(user_bashSCList[L]) + "\n")
+                file.write("\t\tSession Start: " + str(user_bashSSList[L]) + "\n\t\tSession End: " + str(
+                    user_bashSEList[L]) + "\n\t\tSession Commands: \n\t\t" + str(user_bashSCList[L]) + "\n")
                 L = L + 1
                 bashWriteCounter = bashWriteCounter + 1
                 bashSess = bashSess + 1
