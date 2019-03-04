@@ -1,5 +1,5 @@
 # Query Logic for Installed Applications v0.2
-# Justin Boncaldo 2019
+# Justin Boncaldo (@boncaldoj) 2019
 # ----------------------------------------------------------
 
 import sqlite3

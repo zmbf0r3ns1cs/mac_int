@@ -1,5 +1,5 @@
-# Query Logic for User Information v0.3
-# Justin Boncaldo, Zach Burnham (@zmbf0r3ns1cs) 2019
+# Query Logic for Internet searches v0.1
+# Justin Boncaldo (@boncaldoj) 2019
 # ----------------------------------------------------------
 
 import sqlite3

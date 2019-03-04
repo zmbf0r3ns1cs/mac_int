@@ -1,5 +1,5 @@
 # Query Logic for Mounted Devices/Volumes v0.11
-# Justin Boncaldo, Zachary Burnham (@zmbf0r3ns1cs) 2019
+# Justin Boncaldo (@boncaldoj), Zachary Burnham (@zmbf0r3ns1cs) 2019
 # ----------------------------------------------------------
 
 import sqlite3

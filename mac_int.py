@@ -1,5 +1,5 @@
 '''
-   Authors: Zachary Burnham (@zmbf0r3ns1cs), Justin Boncaldo, & Benjamin Estes 2019 
+   Authors: Zachary Burnham (@zmbf0r3ns1cs), Justin Boncaldo (@boncaldoj), & Benjamin Estes 2019
    
    This file is part of mac_int (macOS Artifact Intelligence Tool).
    
