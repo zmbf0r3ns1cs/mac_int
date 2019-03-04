@@ -380,42 +380,42 @@ def userInfoRun():
                     a = n
                     b = ri
                     c = T
-                    g = User
+                    g = u
                     h = volume
                     i = userSearch
                 elif counter == 32:
                     a = url
                     b = ri
                     c = T
-                    g = User
+                    g = u
                     h = volume
                     i = userSearch
                 elif counter == 33:
                     a = "Info"
                     b = ri
                     c = T
-                    g = User
+                    g = u
                     h = volume
                     i = userSearch
                 elif counter == 34:  # RecentItems for PLACE
                     a = n
                     b = ri
                     c = T
-                    g = User
+                    g = u
                     h = place
                     i = userSearch
                 elif counter == 35:
                     a = url
                     b = ri
                     c = T
-                    g = User
+                    g = u
                     h = place
                     i = userSearch
                 elif counter == 36:
                     a = "Info"
                     b = ri
                     c = T
-                    g = User
+                    g = u
                     h = place
                     i = userSearch
 

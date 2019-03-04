@@ -104,22 +104,31 @@ user_riNameplace_List = []      #
 user_riURLplace_List = []       #
 user_riInfoplace_List = []      #
 
-internet_SafariDLName_List = []     # Internet Searches
-internet_SafariDLURL_List = []      #
-internet_SafariDLDate_List = []     #
-internet_SafariDLOther_List = []    #
-internet_SafariLSName_List = []     #
-internet_SafariLSURL_List = []      #
-internet_SafariLSDate_List = []     #
-internet_SafariLSOther_List = []    #
-internet_SafariRCName_List = []     #
-internet_SafariRCURL_List = []      #
-internet_SafariRCDate_List = []     #
-internet_SafariRCOther_List = []    #
-internet_SafariHName_List = []     #
-internet_SafariHURL_List = []      #
-internet_SafariHDate_List = []     #
-internet_SafariHOther_List = []    #
+internet_SafariDLName_List = []      # Internet Searches
+internet_SafariDLURL_List = []       #
+internet_SafariDLDate_List = []      #
+internet_SafariDLOther_List = []     #
+internet_SafariLSName_List = []      #
+internet_SafariLSURL_List = []       #
+internet_SafariLSDate_List = []      #
+internet_SafariLSOther_List = []     #
+internet_SafariRCName_List = []      #
+internet_SafariRCURL_List = []       #
+internet_SafariRCDate_List = []      #
+internet_SafariRCOther_List = []     #
+internet_SafariHName_List = []       #
+internet_SafariHURL_List = []        #
+internet_SafariHDate_List = []       #
+internet_SafariHOther_List = []      #
+internet_SafariOISLTName_List = []   #
+internet_SafariOISLTURL_List = []    #
+internet_SafariOISLTDate_List = []   #
+internet_SafariOISLTType_List = []   #
+internet_SafariOIRSName_List = []    #
+internet_SafariOIRSURL_List = []     #
+internet_SafariOIRSDate_List = []    #
+internet_SafariOIRSType_List = []    #
+
 
 # Tables
 di = 'Dock Items'
@@ -182,6 +191,8 @@ place = 'PLACE'
 OtherInfo = 'Other_Info'
 LastSession = 'LASTSESSION'
 recentlyClosed = 'RECENTCLOSEDTAB'
+sLT = 'SuccessfulLaunchTimestamp'
+recentsearch = 'RECENT_SEARCH'
 
 # Values
 macOS = "macOS Installer"

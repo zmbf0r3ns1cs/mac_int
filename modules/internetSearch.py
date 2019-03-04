@@ -32,9 +32,9 @@ def Safari():
     userSearch = input("What User? (Enter for default All): ")
     print("Starting Parsing " + str(userSearch) + "'s Safari Data...")
     while end != "yes":
-        if counter in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15):
+        if counter in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23):
             print("[~] Finding Safari Content...")
-            while counter in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15):
+            while counter in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23):
                 # 0 -
                 if counter == 0:  # Searches Safari for Name_or_Title, Type = Download
                     a = NoT
@@ -120,7 +120,6 @@ def Safari():
                     g = u
                     h = recentlyClosed
                     i = userSearch
-
                 elif counter == 12:  # Searches Safari for Name_or_Title, Type = History
                     a = NoT
                     b = S
@@ -148,6 +147,62 @@ def Safari():
                     c = T
                     g = u
                     h = 'HISTORY'
+                    i = userSearch
+                elif counter == 16:  # Searches Safari for Name, OtherInfo = SuccessfulLaunchTimestamp
+                    a = NoT
+                    b = S
+                    c = OtherInfo
+                    g = u
+                    h = sLT
+                    i = userSearch
+                elif counter == 17:  # Searches Safari for URL, OtherInfo = URL
+                    a = url
+                    b = S
+                    c = OtherInfo
+                    g = u
+                    h = sLT
+                    i = userSearch
+                elif counter == 18:  # Searches Safari for Date, OtherInfo = Date
+                    a = date
+                    b = S
+                    c = OtherInfo
+                    g = u
+                    h = sLT
+                    i = userSearch
+                elif counter == 19:  # Searches Safari for other Info, OtherInfo = Type
+                    a = T
+                    b = S
+                    c = OtherInfo
+                    g = u
+                    h = sLT
+                    i = userSearch
+                elif counter == 20:  # Searches Safari for Name, OtherInfo = Recent Searches
+                    a = NoT
+                    b = S
+                    c = OtherInfo
+                    g = u
+                    h = recentsearch
+                    i = userSearch
+                elif counter == 21:  # Searches Safari for URL, OtherInfo = Recent Searches
+                    a = url
+                    b = S
+                    c = OtherInfo
+                    g = u
+                    h = recentsearch
+                    i = userSearch
+                elif counter == 22:  # Searches Safari for Date, OtherInfo = Recent Searches
+                    a = date
+                    b = S
+                    c = OtherInfo
+                    g = u
+                    h = recentsearch
+                    i = userSearch
+                elif counter == 23:  # Searches Safari for Type, OtherInfo = Recent Searches
+                    a = T
+                    b = S
+                    c = OtherInfo
+                    g = u
+                    h = recentsearch
                     i = userSearch
                 else:
                     print("A counting error has occurred")
@@ -195,12 +250,68 @@ def Safari():
                         internet_SafariHDate_List.append(string1)
                     elif counter == 15:
                         internet_SafariHOther_List.append(string1)
+                    elif counter == 16:
+                        internet_SafariOISLTName_List.append(string1)
+                    elif counter == 17:
+                        internet_SafariOISLTURL_List.append(string1)
+                    elif counter == 18:
+                        internet_SafariOISLTDate_List.append(string1)
+                    elif counter == 19:
+                        internet_SafariOISLTType_List.append(string1)
+                    elif counter == 20:
+                        internet_SafariOIRSName_List.append(string1)
+                    elif counter == 21:
+                        internet_SafariOIRSURL_List.append(string1)
+                    elif counter == 22:
+                        internet_SafariOIRSDate_List.append(string1)
+                    elif counter == 23:
+                        internet_SafariOIRSType_List.append(string1)
                     else:
                         continue
                 counter = counter + 1
 
+        # # Begins Quarantine Search
+        # elif counter in (16, 17):
+        #     while counter in (16, 17):
+        #         if counter == 16:  # Searches Safari for Name_or_Title, Type = Download
+        #             a = NoT
+        #             b = S
+        #             c = T
+        #             g = u
+        #         else:
+        #             print("A counting error has occurred")
+        #
+        #         cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=?'.format(a, b, c, g), (h, i))
+        #         output = cursor.fetchall()
+        #         del d[:]
+        #         for row in output:
+        #             d.append(str(row[0]))
+        #         pos = 0
+        #         for (row) in output:
+        #             string1 = str(d[pos])
+        #             pos = pos + 1
+        #             # Volume Name List Start
+        #             if counter == 0:
+        #                 internet_SafariDLName_List.append(string1)
+        #             elif counter == 1:
+        #                 internet_SafariDLURL_List.append(string1)
+        #
+
         else:
             end = "yes"
+
+            # Safari Write, OtherInfo = SuccessfulLaunchTimestamp
+            line1 = 0
+            writePos1 = 0
+            if line1 != len(internet_SafariOISLTName_List):
+                file.write(str(userSearch) + " launched Safari for the last time on ")
+            else:
+                file.write(str(userSearch) + " has not launched Safari\n")
+            while line1 < len(internet_SafariOISLTName_List):
+                file.write(str(internet_SafariOISLTDate_List[writePos1]) + "\n\n")
+                line1 = line1 + 1
+                writePos1 = writePos1 + 1
+            file.write("\n\n")
 
             # Safari Write, Type = Download
             line1 = 0
@@ -210,10 +321,25 @@ def Safari():
             else:
                 file.write(str(userSearch) + " has no Safari internet activity\n")
             while line1 < len(internet_SafariDLName_List):
-                file.write("\t•'" + str(internet_SafariDLName_List[writePos1]) + "' from the location '" + str(
+                file.write("\t-'" + str(internet_SafariDLName_List[writePos1]) + "' from the location '" + str(
                     internet_SafariDLURL_List[writePos1]) + "'\n\t\tDate: " + str(
                     internet_SafariDLDate_List[writePos1]) + "\n\t\tSave Location: " + str(
                     internet_SafariDLOther_List[writePos1]) + "\n\n")
+                line1 = line1 + 1
+                writePos1 = writePos1 + 1
+            file.write("\n\n")
+
+            # Safari Write, OtherInfo = Recent Searches
+            line1 = 0
+            writePos1 = 0
+            if line1 != len(internet_SafariOIRSName_List):
+                file.write(str(userSearch) + " made the following recent searches on Safari:\n")
+            else:
+                file.write(str(userSearch) + " made no recent searches on Safari\n")
+            while line1 < len(internet_SafariOIRSName_List):
+                file.write("\t-'" + str(internet_SafariOIRSName_List[writePos1]) + "' on " + str(
+                    internet_SafariOIRSDate_List[writePos1]) + "'\n\t\tType: " + str(
+                    internet_SafariOIRSType_List[writePos1]) + "\n\n")
                 line1 = line1 + 1
                 writePos1 = writePos1 + 1
             file.write("\n\n")
@@ -222,11 +348,11 @@ def Safari():
             line1 = 0
             writePos1 = 0
             if line1 != len(internet_SafariLSName_List):
-                file.write(str(userSearch) + " had these URLs saved from their last Safari session:\n")
+                file.write(str(userSearch) + " had these URLs auto-launch from their last closed Safari session:\n")
             else:
-                file.write(str(userSearch) + " has no saved Safari searches from their last session\n")
+                file.write(str(userSearch) + " has no Safari searches saved from their last session\n")
             while line1 < len(internet_SafariLSName_List):
-                file.write("\t•'" + str(internet_SafariLSName_List[writePos1]) + "' from the location '" + str(
+                file.write("\t-'" + str(internet_SafariLSName_List[writePos1]) + "' from the location '" + str(
                     internet_SafariLSURL_List[writePos1]) + "'\n\t\tDate: " + str(
                     internet_SafariLSDate_List[writePos1]) + "\n\t\tSave Location: " + str(
                     internet_SafariLSOther_List[writePos1]) + "\n\n")
@@ -242,7 +368,7 @@ def Safari():
             else:
                 file.write(str(userSearch) + " has not recently closed any Safari tabs\n")
             while line1 < len(internet_SafariRCName_List):
-                file.write("\t•'" + str(internet_SafariRCName_List[writePos1]) + "' from the location '" + str(
+                file.write("\t-'" + str(internet_SafariRCName_List[writePos1]) + "' from the location '" + str(
                     internet_SafariRCURL_List[writePos1]) + "'\n\t\tDate: " + str(
                     internet_SafariRCDate_List[writePos1]) + "\n\t\tOther Info: " + str(
                     internet_SafariRCOther_List[writePos1]) + "\n\n")
@@ -258,13 +384,15 @@ def Safari():
             else:
                 file.write(str(userSearch) + " has no Safari search history\n")
             while line1 < len(internet_SafariHName_List):
-                file.write("\t•'" + str(internet_SafariHName_List[writePos1]) + "' with the URL '" + str(
+                file.write("\t-'" + str(internet_SafariHName_List[writePos1]) + "' with the URL '" + str(
                     internet_SafariHURL_List[writePos1]) + "'\n\t\tDate: " + str(
                     internet_SafariHDate_List[writePos1]) + "\n\t\tOther Info: " + str(
                     internet_SafariHOther_List[writePos1]) + "\n\n")
                 line1 = line1 + 1
                 writePos1 = writePos1 + 1
             file.write("\n\n")
+
+
 
 
 Safari()
