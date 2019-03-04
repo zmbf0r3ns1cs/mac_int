@@ -20,7 +20,7 @@
 '''
 import argparse
 import os
-import mountedDevices
+from modules import mountedVolumes, installedApps
 
 __VERSION = "0.1"
 __STATUS = "ALPHA"
@@ -37,6 +37,7 @@ parser.add_argument('-mv', '--MountedVolumes', action="store_true", help='Runs f
 parser.add_argument('-ui', '--UserInfo', action="store_true", help='Runs for User Info')
 parser.add_argument('-ia', '--InstalledApps', action="store_true", help='Runs for Installed Application Info')
 parser.add_argument('-na', '--NetworkActivity', action="store_true", help='Runs for Network Activity Info')
+parser.add_argument('-is', '--InternetSearch', action="store_true", help='Runs for Internet Searches')
 #arg_parser.add_argument('-t', '--target_info', help='Topics: Mounted Volumes, Network Activity, User Information, Installed Apps')
 #arg_parser.add_argument('-c', '--case_type', help='ALTERNATIVE to TARGET_INFO: Incident Response (IR), IP Theft (IP)')
 parser.add_argument('--version', action='version', version='%(prog)s {} ({})'.format(__VERSION, __STATUS))
@@ -52,21 +53,21 @@ else:
     args.output_dir = cwd
 
 if args.MountedVolumes:
-    mountedDevices.mountedDevicesRun(args.output_dir, args.input_path, args.user_name)
+    mountedVolumes.mountedVolumesRun(args.output_dir, args.input_path, args.user_name)
 else:
     exit
 
 if args.UserInfo:
-    mountedDevices.mountedDevicesRun(args.output_dir, args.input_path, args.user_name)
+    mountedVolumes.mountedVolumesRun(args.output_dir, args.input_path, args.user_name)
 else:
     exit
 
 if args.InstalledApps:
-    mountedDevices.mountedDevicesRun(args.output_dir, args.input_path, args.user_name)
+    installedApps.installedAppsRun(args.output_dir, args.input_path, args.user_name)
 else:
     exit
 
 if args.NetworkActivity:
-    mountedDevices.mountedDevicesRun(args.output_dir, args.input_path, args.user_name)
+    mountedVolumes.mountedVolumesRun(args.output_dir, args.input_path, args.user_name)
 else:
     exit

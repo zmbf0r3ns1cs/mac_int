@@ -1,10 +1,10 @@
-# Query Logic for Internet searches v0.1
+# Query Logic for Internet Searches v0.1
 # Justin Boncaldo (@boncaldoj) 2019
 # ----------------------------------------------------------
 
 import sqlite3
 import re
-from variable_db import *
+from var_db import *
 
 
 # Specify files here for testing

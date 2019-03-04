@@ -1,10 +1,10 @@
 # Query Logic for User Information v0.3
-# Justin Boncaldo, Zach Burnham (@zmbf0r3ns1cs) 2019
+# Justin Boncaldo, Zachary Burnham (@zmbf0r3ns1cs) 2019
 # ----------------------------------------------------------
 
 import sqlite3
 import re
-from variable_db import *
+from var_db import *
 
 
 # Specify files here for testing
@@ -19,7 +19,7 @@ cursor = connection.cursor()
 # Mounted Volume variables
 global a, b, c, g, h, i, output
 
-def userInfo():
+def userInfoRun():
     global a, b, c, g, h, i, output
     # Define strings
     d = []
@@ -654,7 +654,7 @@ def userInfo():
                 bashSess = bashSess + 1
 
 
-userInfo()
+userInfoRun()
 
 
 # Global Variables

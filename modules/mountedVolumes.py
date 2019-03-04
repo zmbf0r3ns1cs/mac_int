@@ -5,9 +5,9 @@
 import sqlite3
 import os
 import re
-from variable_db import *
+from var_db import *
 
-def mountedDevicesRun(output_dir, input_path, user_name):
+def mountedVolumesRun(output_dir, input_path, user_name):
     # Output file and DB specified in mac_int.py
     file = open(output_dir + "\\mac_int-MOUNTEDVOLUMES-Output.txt", 'w+')
     connection = sqlite3.connect(input_path)
@@ -123,7 +123,7 @@ def mountedDevicesRun(output_dir, input_path, user_name):
             mount_crList[z]) + "\n" + "\t\tVolume first seen on: " + str(
             mount_fsList[z]) + "\n" + "\t\tVolume last seen on: " + str(
             mount_lsList[z]) + "\n")
-        # Additional IF statement for identifying devices present during forensic acquisition
+        # Additional IF statement for identifying volumes present during forensic acquisition
         # This is based off the presence/absence of Spotlight Data values for each drive
         if str(mount_fsList[z]) == "[]":
             file.write('\t\t' + mount_volList[z] + ' was not imaged during forensic acquisition - possibly a secondary/removable device\n')

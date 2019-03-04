@@ -6,3 +6,7 @@ __pycache__/
 
 # Test Files
 mac_int-MOUNTEDDEVICES-Output.txt
+mac_int-MOUNTEDVOLUMES-Output.txt
+mac_int-INSTALLEDAPPS-Output.txt
+mac_int-INSTALLEDAPPS-justin.boncaldo-Output.txt
+mac_int-INSTALLEDAPPS-ALL-Output.txt
