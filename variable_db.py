@@ -104,6 +104,22 @@ user_riNameplace_List = []      #
 user_riURLplace_List = []       #
 user_riInfoplace_List = []      #
 
+internet_SafariDLName_List = []     # Internet Searches
+internet_SafariDLURL_List = []      #
+internet_SafariDLDate_List = []     #
+internet_SafariDLOther_List = []    #
+internet_SafariLSName_List = []     #
+internet_SafariLSURL_List = []      #
+internet_SafariLSDate_List = []     #
+internet_SafariLSOther_List = []    #
+internet_SafariRCName_List = []     #
+internet_SafariRCURL_List = []      #
+internet_SafariRCDate_List = []     #
+internet_SafariRCOther_List = []    #
+internet_SafariHName_List = []     #
+internet_SafariHURL_List = []      #
+internet_SafariHDate_List = []     #
+internet_SafariHOther_List = []    #
 
 # Tables
 di = 'Dock Items'
@@ -160,10 +176,12 @@ pue = "public.unix-executable"
 cmwe = "com.microsoft.windows-executable"
 appCode = "41"
 Homedir = 'Homedir'
-volume = "VOLUME"
+volume = 'VOLUME'
 string1 = "None"
-User = "User"
-place = "PLACE"
+place = 'PLACE'
+OtherInfo = 'Other_Info'
+LastSession = 'LASTSESSION'
+recentlyClosed = 'RECENTCLOSEDTAB'
 
 # Values
 macOS = "macOS Installer"
