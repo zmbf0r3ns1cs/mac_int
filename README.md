@@ -26,3 +26,4 @@ mac_int operates off pre-defined Python3 scripts that are called upon using comm
 | InstalledApps | Updates, Downloaded and Installed Applications | InstallHistory, DockItems, NetUsage |
 | UserInfo | Parse for all related **user information** on the system, including information such as mounted volumes and installed applications | InstallHistory, NetUsage, RecentItems, Safari, DockItems |
 | NetworkActivity | Parse for any **network activity** that occured, including info such as WiFi, DHCP, AD, and network usage | Network_DHCP, NetUsage |
+| InternetSearch | Parse for any **internet searches** that occured | TBD |
