@@ -128,6 +128,24 @@ internet_SafariOIRSName_List = []    #
 internet_SafariOIRSURL_List = []     #
 internet_SafariOIRSDate_List = []    #
 internet_SafariOIRSType_List = []    #
+internet_SafariOITSName_List = []    #
+internet_SafariOITSURL_List = []     #
+internet_SafariOITSDate_List = []    #
+internet_SafariOITSOther_List = []   #
+internet_SafariOIFVName_List = []    #
+internet_SafariOIFVURL_List = []     #
+internet_SafariOIFVDate_List = []    #
+internet_SafariOIFVOther_List = []   #
+internet_SafariOIBName_List = []     #
+internet_SafariOIBURL_List = []      #
+internet_SafariOIBDate_List = []     #
+internet_SafariOIBType_List = []     #
+internet_QuarantineName_List = []    # Quarantine Begins
+internet_QuarantineABID_List = []    #
+internet_QuarantineTS_List = []      #
+internet_QuarantineOURL_List = []    #
+internet_QuarantineOTitle_List = []  #
+internet_QuarantineDURL_List = []    #
 
 
 # Tables
@@ -193,10 +211,15 @@ LastSession = 'LASTSESSION'
 recentlyClosed = 'RECENTCLOSEDTAB'
 sLT = 'SuccessfulLaunchTimestamp'
 recentsearch = 'RECENT_SEARCH'
-
+fV = 'FREQUENTLY_VISITED'
+bookM = 'BookmarksBar'
 # Values
 macOS = "macOS Installer"
 softwareupdated = "softwareupdated"
 installer = "installer"
-
-
+aN = 'AgentName'
+aBID = 'AgentBundleID'
+tS = 'TimeStamp'
+oURL = 'OriginURL'
+oTitle = 'OriginTitle'
+dURL = 'DataURL'
