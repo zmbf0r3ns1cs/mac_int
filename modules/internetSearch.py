@@ -19,7 +19,7 @@ cursor = connection.cursor()
 # Mounted Volume variables
 global a, b, c, g, h, i, output
 
-def Safari():
+def SafariQuarantine():
     global a, b, c, g, h, i, output
     # Define strings
     d = []
@@ -610,7 +610,7 @@ def Safari():
 
 
 
-Safari()
+SafariQuarantine()
 
 # elif counter in (10, 11, 12, 13, 14, 15, 16, 17):
 #     print("[~] Finding User Downloads...")
