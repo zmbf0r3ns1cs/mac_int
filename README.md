@@ -25,7 +25,7 @@ python mac_int -h
 
 ### Current Modules
 
-mac_int operates off pre-defined Python3 scripts that are called upon using command arguments. This list is a work in progress - any newly created module can be created and added to the argument parser for mac_int for command line accessibility. Below is a working table describing the current modules and their functionality:
+mac_int operates off pre-defined Python3 scripts that are called upon using command arguments. This list is a constant work in progress - any new module based on mac_apt SQLite output can be created and added to the argument parser for command line accessibility. Below is a working table describing the current modules and their functionality:
 
 | Module | Description | mac_apt Connections (Tables) |
 | --- | --- | --- |
