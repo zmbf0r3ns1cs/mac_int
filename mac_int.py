@@ -30,7 +30,7 @@ __PROGRAMNAME = "macOS Artifact Intelligence Tool"
 
 # Establish Arguments
 parser = argparse.ArgumentParser(description='mac_int is a program designed to apply intelligence to macOS artifacts found within mac_apt\'s SQLITE output.\n'\
-                                                 'You are running {} version {} - {}'.format(__PROGRAMNAME, __VERSION, __STATUS), formatter_class=argparse.RawTextHelpFormatter)
+                                 'You are running {} version {} - {}'.format(__PROGRAMNAME, __VERSION, __STATUS), formatter_class=argparse.RawTextHelpFormatter)
 
 parser.add_argument('input_path', help='Path to mac_apt SQLITE Database output')
 parser.add_argument('user_name', help='Username of target account')
