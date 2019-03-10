@@ -2,7 +2,7 @@
 
 ### macOS Artifact Intelligence Tool
 
-mac_int is an interpretive DFIR intelligence and artifact correlation tool designed to automatically identify patterns and connections between parsed artifact data from the SQLite output of Yogesh Khatri’s open source tool, **mac_apt**.
+mac_int is an interpretive, modular DFIR intelligence and artifact correlation tool designed to automatically identify patterns and connections between parsed artifact data from the SQLite output of Yogesh Khatri’s open source tool, **mac_apt**.
 
 #### Requirements: Python3 - 32/64 bit
 #### mac_apt: https://github.com/ydkhatri/mac_apt
@@ -16,7 +16,14 @@ Users of mac_int will have the ability to utilize pre-researched data interpreta
 - Intelligent "connective parsing" from mac_apt SQLite Database output
 - Interpreted data is displayed via HTML format for ease-of-use and readability
 
-### Modules
+### Getting Started
+
+To see all available options, run the following invocation:
+```
+python mac_int -h 
+```
+
+### Current Modules
 
 mac_int operates off pre-defined Python3 scripts that are called upon using command arguments. This list is a work in progress - any newly created module can be created and added to the argument parser for mac_int for command line accessibility. Below is a working table describing the current modules and their functionality:
 
