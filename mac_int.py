@@ -28,21 +28,26 @@ __PROGRAMNAME = "macOS Artifact Intelligence Tool"
 
 #### MAIN PROGRAM ####
 
+# Establish Arguments
 parser = argparse.ArgumentParser(description='mac_int is a program designed to apply intelligence to macOS artifacts found within mac_apt\'s SQLITE output.\n'\
                                                  'You are running {} version {} - {}'.format(__PROGRAMNAME, __VERSION, __STATUS), formatter_class=argparse.RawTextHelpFormatter)
+
 parser.add_argument('input_path', help='Path to mac_apt SQLITE Database output')
-parser.add_argument('-o', '--output_dir', help='Desired DIRECTORY to store mac_int output files')
 parser.add_argument('user_name', help='Username of target account')
-parser.add_argument('-mv', '--MountedVolumes', action="store_true", help='Runs for Mounted Volume Info')
-parser.add_argument('-ui', '--UserInfo', action="store_true", help='Runs for User Info')
-parser.add_argument('-ia', '--InstalledApps', action="store_true", help='Runs for Installed Application Info')
-parser.add_argument('-na', '--NetworkActivity', action="store_true", help='Runs for Network Activity Info')
-parser.add_argument('-is', '--InternetSearch', action="store_true", help='Runs for Internet Searches')
+parser.add_argument('-o', '--output_dir', help='Desired DIRECTORY to store mac_int output files')
+parser.add_argument('-v', '--version', action='version', version='%(prog)s {} ({})'.format(__VERSION, __STATUS))
+
+modules = parser.add_argument_group('available modules')
+modules.add_argument('-mv', '--MountedVolumes', action="store_true", help='Runs for Mounted Volume Info')
+modules.add_argument('-ui', '--UserInfo', action="store_true", help='Runs for User Info')
+modules.add_argument('-ia', '--InstalledApps', action="store_true", help='Runs for Installed Application Info')
+modules.add_argument('-na', '--NetworkActivity', action="store_true", help='Runs for Network Activity Info')
+modules.add_argument('-is', '--InternetSearch', action="store_true", help='Runs for Internet Searches')
 #arg_parser.add_argument('-t', '--target_info', help='Topics: Mounted Volumes, Network Activity, User Information, Installed Apps')
 #arg_parser.add_argument('-c', '--case_type', help='ALTERNATIVE to TARGET_INFO: Incident Response (IR), IP Theft (IP)')
-parser.add_argument('--version', action='version', version='%(prog)s {} ({})'.format(__VERSION, __STATUS))
 args = parser.parse_args()
 
+# Establish Actions
 if args.output_dir:
     print("[#] Output directory for mac_int results set to '{}'".format(args.output_dir))
 else:
