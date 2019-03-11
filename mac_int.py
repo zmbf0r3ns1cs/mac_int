@@ -20,9 +20,9 @@
 '''
 import argparse
 import os
-from modules import mountedVolumes, installedApps
+from modules import mountedVolumes, installedApps, internetSearch, userInfo
 
-__VERSION = "0.1"
+__VERSION = "0.2"
 __STATUS = "ALPHA"
 __PROGRAMNAME = "macOS Artifact Intelligence Tool"
 
@@ -57,22 +57,32 @@ else:
     print("[#] Using current directory ({}) for mac_int results...".format(cwd))
     args.output_dir = cwd
 
+# Mounted Devices Search
 if args.MountedVolumes:
     mountedVolumes.mountedVolumesRun(args.output_dir, args.input_path, args.user_name)
 else:
     exit
 
+# User Info Search
 if args.UserInfo:
-    mountedVolumes.mountedVolumesRun(args.output_dir, args.input_path, args.user_name)
+    userInfo.userInfoRun(args.output_dir, args.input_path, args.user_name)
 else:
     exit
 
+# Installed Apps Search
 if args.InstalledApps:
     installedApps.installedAppsRun(args.output_dir, args.input_path, args.user_name)
 else:
     exit
 
+# Network Activity Search
 if args.NetworkActivity:
     mountedVolumes.mountedVolumesRun(args.output_dir, args.input_path, args.user_name)
+else:
+    exit
+
+# Internet Search
+if args.InternetSearch:
+    internetSearch.internetSearchRun(args.output_dir, args.input_path, args.user_name)
 else:
     exit

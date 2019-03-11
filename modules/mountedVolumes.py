@@ -1,4 +1,4 @@
-# Query Logic for Mounted Devices/Volumes v0.11
+# Query Logic for Mounted Devices/Volumes v1.0
 # Justin Boncaldo (@boncaldoj), Zachary Burnham (@zmbf0r3ns1cs) 2019
 # ----------------------------------------------------------
 
@@ -9,7 +9,7 @@ from var_db import *
 
 def mountedVolumesRun(output_dir, input_path, user_name):
     # Output file and DB specified in mac_int.py
-    file = open(output_dir + "\\mac_int-MOUNTEDVOLUMES-Output.txt", 'w+')
+    file = open(output_dir + "\\mac_int-MOUNTEDVOLUMES-" + user_name +"-Output.txt", 'w+')
     connection = sqlite3.connect(input_path)
     cursor = connection.cursor()
 
@@ -117,7 +117,7 @@ def mountedVolumesRun(output_dir, input_path, user_name):
     z = 0 # List Position
 
     # Begin writing output
-    print("[#] Making all this data pretty...")
+    # print("[#] Making all this data pretty...")
     while m < (volLength):
         file.write("\t-Volume Name: " + str(mount_volList[z]) + "\n" + "\t\tVolume created on: " + str(
             mount_crList[z]) + "\n" + "\t\tVolume first seen on: " + str(
@@ -137,14 +137,14 @@ def mountedVolumesRun(output_dir, input_path, user_name):
     b = "None"
     output = None
 
-    # End Parsing, finally.
-    print("[*] Mounted Volume Parsing Completed!")
-
     # mountedDevice.py variables
     x = mount_volList
 
     # Run Bash Session connections
-    for row in x:  # mount_volList in mountedDevices.py file
+    print("[#] Gathering relevant Bash Sessions...")
+    print("[~] Finding Session Start Times...")
+    print("[~] Finding Session End Times...")
+    for row in x:
         L = 0
         # SQLite Search for Session Commands
         a = sc
@@ -197,3 +197,6 @@ def mountedVolumesRun(output_dir, input_path, user_name):
     file.write("\t\t" + str(mount_bashList) + "\n")
     file.write("\t\t" + str(mount_ssList) + "\n")
     file.write("\t\t" + str(mount_seList) + "\n")
+
+    # Show When Parsing Completed
+    print("[*] Mounted Volume Parsing for " + user_name + " Completed!")

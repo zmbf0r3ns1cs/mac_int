@@ -1,4 +1,4 @@
-# Query Logic for Installed Applications v0.3
+# Query Logic for Installed Applications v1.0
 # Justin Boncaldo (@boncaldoj), Zachary Burnham (@zmbf0r3ns1cs) 2019
 # ----------------------------------------------------------
 
@@ -7,13 +7,11 @@ import re
 from var_db import *
 
 def installedAppsRun(output_dir, input_path, user_name):
-    # file = open(output_dir + "\\mac_int-INSTALLEDAPPS-Output.txt", 'w+')
     connection = sqlite3.connect(input_path)
-
     cursor = connection.cursor()
 
     # Mounted Volume variables
-    global a, b, c, g, h, i, output, userSpecific
+    global a, b, c, g, h, i, output, nonUserSpecific
 
     def generalSystem():
         global a, b, c, g, h, i, output
@@ -175,7 +173,7 @@ def installedAppsRun(output_dir, input_path, user_name):
         #Writing out different installer types (macOS, software update, installers)
         line1 = 0
         writePos1 = 0
-        file.write("The following outputs are non-user specific, until specified\n\n")
+        file.write("[*] The following outputs are non-user specific, until specified\n\n")
         file.write("There was a macOS update instance performed on this system by:\n")
         while line1 < pNLength1:
             file.write("\t-'" + str(inst_processName1List[writePos1]) + "' on " + str(inst_date1List[writePos1]) + "\n")
@@ -229,7 +227,7 @@ def installedAppsRun(output_dir, input_path, user_name):
         output = None
 
         userSearch = user_name
-        print("[*] Starting Installed Application Parsing for " + str(userSearch) + "...")
+        print("[#] Starting Installed Application Parsing for " + str(userSearch) + "...")
         while end != "yes":
             # These require two parameters
             # Round 1 includes InstallHistory, DockItems, and NetUsage. Only require one parameter
@@ -242,7 +240,7 @@ def installedAppsRun(output_dir, input_path, user_name):
             # Round 3 includes Users and Spotlight
             # 18 - 20 Quarantine
             if counter in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9):
-                print("[~] Finding Updates...")
+                print("[~] Finding any logged updates...")
                 while counter in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9):
                     if counter == 0:
                         a = dN
@@ -763,19 +761,23 @@ def installedAppsRun(output_dir, input_path, user_name):
     Y = 'Y'
     N = 'N'
     while loop == "no":
-        userSpecific = input("[!] Do you want to include some non-user specific items? [Y/N]: ")
-        print("----------------------------------------------------")
-        if userSpecific == Y:
+        nonUserSpecific = input("[!] Do you want to include some non-user specific items? [Y/N]: ")
+        print("------------------------------------------------------------")
+        if nonUserSpecific == Y:
             file = open(output_dir + "\\mac_int-INSTALLEDAPPS-ALL-Output.txt", 'w+')
             loop = "yes"
             generalSystem()
             userSpecificSearch()
-        elif userSpecific == N:
+        elif nonUserSpecific == N:
             file = open(output_dir + "\\mac_int-INSTALLEDAPPS-" + user_name +"-Output.txt", 'w+')
             userSpecificSearch()
             loop = "yes"
         else:
             print("[!] Not a valid option. Please type Y or N.\n")
             loop = "no"
-    # End Parsing
-    print("[*] Installed Application Parsing Completed!")
+    
+    # Show When Parsing Completed
+    if nonUserSpecific == Y:
+        print("[*] Installed Application Parsing Completed!")
+    else:
+        print("[*] Installed Application Parsing for " + user_name + " Completed!")
