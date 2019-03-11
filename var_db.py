@@ -104,22 +104,49 @@ user_riNameplace_List = []      #
 user_riURLplace_List = []       #
 user_riInfoplace_List = []      #
 
-internet_SafariDLName_List = []     # Internet Searches
-internet_SafariDLURL_List = []      #
-internet_SafariDLDate_List = []     #
-internet_SafariDLOther_List = []    #
-internet_SafariLSName_List = []     #
-internet_SafariLSURL_List = []      #
-internet_SafariLSDate_List = []     #
-internet_SafariLSOther_List = []    #
-internet_SafariRCName_List = []     #
-internet_SafariRCURL_List = []      #
-internet_SafariRCDate_List = []     #
-internet_SafariRCOther_List = []    #
-internet_SafariHName_List = []     #
-internet_SafariHURL_List = []      #
-internet_SafariHDate_List = []     #
-internet_SafariHOther_List = []    #
+internet_SafariDLName_List = []      # Internet Searches
+internet_SafariDLURL_List = []       #
+internet_SafariDLDate_List = []      #
+internet_SafariDLOther_List = []     #
+internet_SafariLSName_List = []      #
+internet_SafariLSURL_List = []       #
+internet_SafariLSDate_List = []      #
+internet_SafariLSOther_List = []     #
+internet_SafariRCName_List = []      #
+internet_SafariRCURL_List = []       #
+internet_SafariRCDate_List = []      #
+internet_SafariRCOther_List = []     #
+internet_SafariHName_List = []       #
+internet_SafariHURL_List = []        #
+internet_SafariHDate_List = []       #
+internet_SafariHOther_List = []      #
+internet_SafariOISLTName_List = []   #
+internet_SafariOISLTURL_List = []    #
+internet_SafariOISLTDate_List = []   #
+internet_SafariOISLTType_List = []   #
+internet_SafariOIRSName_List = []    #
+internet_SafariOIRSURL_List = []     #
+internet_SafariOIRSDate_List = []    #
+internet_SafariOIRSType_List = []    #
+internet_SafariOITSName_List = []    #
+internet_SafariOITSURL_List = []     #
+internet_SafariOITSDate_List = []    #
+internet_SafariOITSOther_List = []   #
+internet_SafariOIFVName_List = []    #
+internet_SafariOIFVURL_List = []     #
+internet_SafariOIFVDate_List = []    #
+internet_SafariOIFVOther_List = []   #
+internet_SafariOIBName_List = []     #
+internet_SafariOIBURL_List = []      #
+internet_SafariOIBDate_List = []     #
+internet_SafariOIBType_List = []     #
+internet_QuarantineName_List = []    # Quarantine Begins
+internet_QuarantineABID_List = []    #
+internet_QuarantineTS_List = []      #
+internet_QuarantineOURL_List = []    #
+internet_QuarantineOTitle_List = []  #
+internet_QuarantineDURL_List = []    #
+
 
 # Tables
 di = 'Dock Items'
@@ -182,10 +209,17 @@ place = 'PLACE'
 OtherInfo = 'Other_Info'
 LastSession = 'LASTSESSION'
 recentlyClosed = 'RECENTCLOSEDTAB'
-
+sLT = 'SuccessfulLaunchTimestamp'
+recentsearch = 'RECENT_SEARCH'
+fV = 'FREQUENTLY_VISITED'
+bookM = 'BookmarksBar'
 # Values
 macOS = "macOS Installer"
 softwareupdated = "softwareupdated"
 installer = "installer"
-
-
+aN = 'AgentName'
+aBID = 'AgentBundleID'
+tS = 'TimeStamp'
+oURL = 'OriginURL'
+oTitle = 'OriginTitle'
+dURL = 'DataURL'
