@@ -524,7 +524,7 @@ def userInfoRun(output_dir, input_path, user_name):
                 while line1 < len(user_riNamevol_List):
                     file.write(
                         "\t-'" + str(user_riNamevol_List[writePos1]) + "' from the location '" + str(
-                            user_riURLvol_List[writePos1]) + "' on " + str(user_riInfovol_List[writePos1]) + "\n")
+                            user_riURLvol_List[writePos1]) + "' which was created on " + str(user_riInfovol_List[writePos1]) + "\n")
                     line1 = line1 + 1
                     writePos1 = writePos1 + 1
                 file.write("\n\n")

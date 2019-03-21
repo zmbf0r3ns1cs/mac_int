@@ -158,6 +158,7 @@ bs = 'BashSessions'
 S = 'Safari'
 q = 'Quarantine'
 users = 'Users'
+bI = 'Basic_Info'
 
 # Columns
 sc = 'Session_Commands'
@@ -211,9 +212,9 @@ LastSession = 'LASTSESSION'
 recentlyClosed = 'RECENTCLOSEDTAB'
 sLT = 'SuccessfulLaunchTimestamp'
 recentsearch = 'RECENT_SEARCH'
+#recentsearch = 'RECENT_SEARCH'
 fV = 'FREQUENTLY_VISITED'
 bookM = 'BookmarksBar'
-# Values
 macOS = "macOS Installer"
 softwareupdated = "softwareupdated"
 installer = "installer"
@@ -223,3 +224,34 @@ tS = 'TimeStamp'
 oURL = 'OriginURL'
 oTitle = 'OriginTitle'
 dURL = 'DataURL'
+
+# System Variables
+system_Model = 'Model Detection Error'
+system_version1 = 'System Version Detection Error'
+system_version2 = 'System Version 2 Detection Error'
+system_serial = 'Serial Number Detection Error'
+system_computerName = "Computer Name Detection Error"
+system_localHostName = "Local Host Detection Error"
+system_timezone = "System Timezone Detection Error"
+system_lastUserName = 'Error'
+system_lastLoginStatus = 'Error'
+system_lastLoginTime = 'Error'
+system_loginText = 'Error'
+
+system_NumberofFiles = 'Error'
+system_NumberofFolders = 'Error'
+system_blockSize = 'Error'
+system_Created = 'Error'
+system_Modified = 'Error'
+system_Checked = 'Error'
+system_Backup = 'Error'
+system_Mounted = 'Error'
+
+
+
+
+
+
+
+
+
