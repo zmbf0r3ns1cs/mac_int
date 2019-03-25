@@ -147,6 +147,7 @@ internet_QuarantineOURL_List = []    #
 internet_QuarantineOTitle_List = []  #
 internet_QuarantineDURL_List = []    #
 
+network_domainList = []     # Network Information
 
 # Tables
 di = 'Dock Items'
@@ -159,6 +160,7 @@ S = 'Safari'
 q = 'Quarantine'
 users = 'Users'
 bI = 'Basic_Info'
+D_AD = 'Domain_ActiveDirectory'
 
 # Columns
 sc = 'Session_Commands'
@@ -246,6 +248,7 @@ system_Modified = 'Error'
 system_Checked = 'Error'
 system_Backup = 'Error'
 system_Mounted = 'Error'
+network_d = 'domain'
 
 
 

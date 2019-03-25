@@ -1,5 +1,5 @@
-# Query Logic for User Information v1.0
-# Justin Boncaldo (@boncaldoj), Zachary Burnham (@zmbf0r3ns1cs) 2019
+# Query Logic for systemInfo v1.0
+# Justin Boncaldo (@boncaldoj) 2019
 # ----------------------------------------------------------
 
 import sqlite3
@@ -135,7 +135,7 @@ def systemInfoRun(output_dir, input_path, user_name):
 
                     cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=?'.format(a, b, c), (g,))
                     output = cursor.fetchall()
-                    print("[~] 50%...")
+
                     del d[:]
                     for row in output:
                         d.append(str(row[0]))
@@ -145,6 +145,7 @@ def systemInfoRun(output_dir, input_path, user_name):
                         pos = pos + 1
                         # Volume Name List Start
                         if counter == 0:
+                            print("[~] 50%...")
                             system_Model = string1
                         elif counter == 1:
                             system_version1 = string1
@@ -153,6 +154,7 @@ def systemInfoRun(output_dir, input_path, user_name):
                         elif counter == 3:
                             system_serial = string1
                         elif counter == 4:
+                            print("[~] 60%...")
                             system_computerName = string1
                         elif counter == 5:
                             system_localHostName = string1
@@ -165,6 +167,7 @@ def systemInfoRun(output_dir, input_path, user_name):
                         elif counter == 9:
                             system_lastLoginTime = string1
                         elif counter == 10:
+                            print("[~] 70%...")
                             system_loginText = string1
                         elif counter == 11:
                             system_NumberofFiles = string1
@@ -175,12 +178,14 @@ def systemInfoRun(output_dir, input_path, user_name):
                         elif counter == 14:
                             system_Created = string1
                         elif counter == 15:
+                            print("[~] 80%...")
                             system_Modified = string1
                         elif counter == 16:
                             system_Checked = string1
                         elif counter == 17:
                             system_Backup = string1
                         elif counter == 18:
+                            print("[~] 90%...")
                             system_Mounted = string1
                         else:
                             continue
