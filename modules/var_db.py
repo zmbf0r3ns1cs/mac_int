@@ -167,7 +167,15 @@ network_PasspointList = []              #
 network_DisabledList = []               #
 network_personalHotspotList = []        #
 network_possiblyHiddenNetworkList = []  #
-
+network_interfaceList = []              # Network_DHCP Table
+network_macAddressList = []             #
+network_IPAddressList = []              #
+network_leaseLengthList = []            #
+network_leaseStartDateList = []         #
+network_routerHardwareAddressList = []  #
+network_routerIPAddressList = []        #
+network_SSIDList = []                   #
+network_BSDNameList = []                #
 
 # Tables
 di = 'Dock Items'
@@ -181,6 +189,8 @@ q = 'Quarantine'
 users = 'Users'
 bI = 'Basic_Info'
 D_AD = 'Domain_ActiveDirectory'
+nDHCP = 'Network_DHCP'
+nINT = 'Network_Interfaces'
 
 # Columns
 sc = 'Session_Commands'
@@ -283,3 +293,9 @@ oCH = 'Other channel history'
 pHot = 'Personal Hotspot'
 pHN = 'Possibly hidden network'
 Wifi = 'Wifi'
+Mac = 'Mac_Address'
+IP = 'IPAddress'
+lL = 'LeaseLength'
+leaseSD = 'LeaseStartDate'
+rHA = 'RouterHardwareAddress'
+rIP = 'RouterIPAddress'

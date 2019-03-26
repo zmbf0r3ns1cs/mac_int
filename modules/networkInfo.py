@@ -106,8 +106,10 @@ def NetworkInfo():
                     else:
                         continue
                 counter = counter + 1
-        if counter in (7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,21, 22, 23, 24, 25, 26):
-            while counter in (7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,21, 22, 23, 24, 25, 26):
+        elif counter in (7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+                       31, 32, 33, 34):
+            while counter in (7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,21, 22, 23, 24, 25, 26, 27, 28,
+                              29, 30, 31, 32, 33, 34):
                 # 7 - 14 Domain_ActiveDirectory Table
                 # 8 - 26 Wifi
                 if counter == 7:
@@ -171,6 +173,30 @@ def NetworkInfo():
                 elif counter == 26:  # Wifi Table Ends
                     a = pHN
                     b = Wifi
+                elif counter == 27:  # Network_DHCP Table Begins
+                    a = 'Interface'
+                    b = nDHCP
+                elif counter == 28:
+                    a = Mac
+                    b = nDHCP
+                elif counter == 29:
+                    a = IP
+                    b = nDHCP
+                elif counter == 30:
+                    a = lL
+                    b = nDHCP
+                elif counter == 31:
+                    a = leaseSD
+                    b = nDHCP
+                elif counter == 32:
+                    a = rHA
+                    b = nDHCP
+                elif counter == 33:
+                    a = rIP
+                    b = nDHCP
+                elif counter == 34:
+                    a = 'SSID'
+                    b = nDHCP
                 else:
                     print("A counting error has occurred")
                 cursor.execute('SELECT "{}" FROM "{}"'.format(a, b),)
@@ -265,9 +291,56 @@ def NetworkInfo():
                         else:
                             string2 = string1
                         network_possiblyHiddenNetworkList.append(string2)
+                    elif counter == 27:
+                        network_interfaceList.append(string1)
+                    elif counter == 28:
+                        network_macAddressList.append(string1)
+                    elif counter == 29:
+                        network_IPAddressList.append(string1)
+                    elif counter == 30:
+                        network_leaseLengthList.append(string1)
+                    elif counter == 31:
+                        network_leaseStartDateList.append(string1)
+                    elif counter == 32:
+                        network_routerHardwareAddressList.append(string1)
+                    elif counter == 33:
+                        network_routerIPAddressList.append(string1)
+                    elif counter == 34:
+                        network_SSIDList.append(string1)
                     else:
                         continue
                 counter = counter + 1
+
+        elif counter in (35, 36):
+            while counter in (35, 36):
+                if counter == 35:
+                    interfaceCount = 0
+                    while interfaceCount < network_interfaceList:
+                        a = 'BSD Name'
+                        b = nINT
+                        c = 'IOMACAddress'
+                        g = network_macAddressList[interfaceCount]
+
+                        cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=?'.format(a, b, c), (g,))
+                        output = cursor.fetchall()
+                        del d[:]
+                        for row in output:
+                            d.append(str(row[0]))
+                        pos = 0
+                        for (row) in output:
+                            string1 = str(d[pos])
+                            pos = pos + 1
+                            network_BSDNameList.append(string1)
+                        interfaceCount = interfaceCount + 1
+                    a = 'BSD Name'
+                    b = nINT
+                    c = 'IOMACAddress'
+                    g =
+                elif counter == 36:
+
+                else:
+                    continue
+            counter = counter + 1
 
         else:
             # Calculates total app internet usage.
@@ -312,11 +385,27 @@ def NetworkInfo():
             network_roamingProfileTypeList[writePos1]) + "\nChannel Last Connected: " + str(
             network_lastConnectedChannelList[writePos1]) + "\nPrior Channel History: " + str(
             network_otherChannelHistoryList[writePos1]) + "\nIs Domain Closed?: " + str(
-            network_ClosedList[writePos1]) + "\nIs it a Passpoint?: " + str(
+            network_ClosedList[writePos1]) + "\nIs Domain a Passpoint?: " + str(
             network_PasspointList[writePos1]) + "\nIs the Domain Disabled?: " + str(
             network_DisabledList[writePos1]) + "\nIs this Domain a Personal Hotspot?: " + str(
             network_personalHotspotList[writePos1]) + "\nIs this Domain Possibly Hidden?: " + str(
             network_possiblyHiddenNetworkList[writePos1]) + "\n")
+        line1 = line1 + 1
+        writePos1 = writePos1 + 1
+    file.write("\n\n")
+
+    # Network_DHCP
+    line1 = 0
+    writePos1 = 0
+    while line1 < len(network_interfaceList):
+        file.write("Interface: " + str(network_interfaceList) + "\nMAC Address: " + str(
+            network_macAddressList[writePos1]) + "\nSSID: " + str(
+            network_SSIDList[writePos1]) + "\nIP Address: " + str(
+            network_IPAddressList[writePos1]) + "\nIP Lease Start Date: " + str(
+            network_leaseStartDateList[writePos1]) + "\nIP Lease Length: " + str(
+            network_leaseLengthList[writePos1]) + "\nRouter IP Addressl: " + str(
+            network_routerIPAddressList[writePos1]) + "\nARouter Hardware Address?: " + str(
+            network_routerHardwareAddressList[writePos1]) + "\n")
         line1 = line1 + 1
         writePos1 = writePos1 + 1
     file.write("\n\n")

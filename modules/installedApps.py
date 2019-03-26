@@ -691,7 +691,7 @@ def installedAppsRun(output_dir, input_path, user_name):
         line1 = 0
         writePos1 = 0
         file.write(" These are " + str(userSearch) + "'s Microsoft Windows Executables:\n")
-        while line1 < idn2Length:
+        while line1 < len(inst_idn2_List):
             file.write("\t-'" + str(inst_idn2_List[writePos1]) + "'\n" + "\t\tItem File Name: " + str(
                 inst_ifn2_List[writePos1]) + "\n" + "\t\tItem Kind: " + str(
                 inst_ik2_List[writePos1]) + "\n" + "\t\tPhysical Size: " + str(
