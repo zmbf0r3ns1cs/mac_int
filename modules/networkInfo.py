@@ -106,9 +106,9 @@ def NetworkInfo():
                     else:
                         continue
                 counter = counter + 1
-        elif counter in (7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
-                       31, 32, 33, 34):
-            while counter in (7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,21, 22, 23, 24, 25, 26, 27, 28,
+        elif counter in (7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
+                         31, 32, 33, 34):
+            while counter in (7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
                               29, 30, 31, 32, 33, 34):
                 # 7 - 14 Domain_ActiveDirectory Table
                 # 8 - 26 Wifi
@@ -311,36 +311,159 @@ def NetworkInfo():
                         continue
                 counter = counter + 1
 
-        elif counter in (35, 36):
-            while counter in (35, 36):
-                if counter == 35:
-                    interfaceCount = 0
-                    while interfaceCount < network_interfaceList:
-                        a = 'BSD Name'
-                        b = nINT
-                        c = 'IOMACAddress'
-                        g = network_macAddressList[interfaceCount]
+        elif counter in (35, 36, 37, 38, 39, 40, 41, 42, 43, 44):  # Begin Tricky bit
+            network_Placeholder = None
+            if counter == 35:
+                interfaceCount  = 0
+                network_Placeholder = network_macAddressList
+                a = 'BSD Name'
+                b = nInterface
+                c = 'IOMACAddress'
+                g = network_macAddressList[interfaceCount]
+            elif counter == 36:
+                interfaceCount = 0
+                network_Placeholder = network_BSDNameList
+                a = 'Hardware'
+                b = nDet
+                c = dName
+                g = network_BSDNameList[interfaceCount]
+            elif counter == 37:
+                interfaceCount = 0
+                network_Placeholder = network_BSDNameList
+                a = 'UUID'
+                b = nDet
+                c = dName
+                g = network_BSDNameList[interfaceCount]
+            elif counter == 38:
+                interfaceCount = 0
+                network_Placeholder = network_BSDNameList
+                a = IPv4confm
+                b = nDet
+                c = dName
+                g = network_BSDNameList[interfaceCount]
+            elif counter == 39:
+                interfaceCount = 0
+                network_Placeholder = network_BSDNameList
+                a = IPv6confm
+                b = nDet
+                c = dName
+                g = network_BSDNameList[interfaceCount]
+            elif counter == 40:
+                interfaceCount = 0
+                network_Placeholder = network_BSDNameList
+                a = 'Type'
+                b = nDet
+                c = dName
+                g = network_BSDNameList[interfaceCount]
+            elif counter == 41:
+                interfaceCount = 0
+                network_Placeholder = network_BSDNameList
+                a = uDefN
+                b = nDet
+                c = dName
+                g = network_BSDNameList[interfaceCount]
+            elif counter == 42:
+                interfaceCount = 0
+                network_Placeholder = network_BSDNameList
+                a = pEL
+                b = nDet
+                c = dName
+                g = network_BSDNameList[interfaceCount]
+            elif counter == 43:
+                interfaceCount = 0
+                network_Placeholder = network_BSDNameList
+                a = smbNBN
+                b = nDet
+                c = dName
+                g = network_BSDNameList[interfaceCount]
+            elif counter == 44:
+                interfaceCount = 0
+                network_Placeholder = network_BSDNameList
+                a = smbWork
+                b = nDet
+                c = dName
+                g = network_BSDNameList[interfaceCount]
 
-                        cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=?'.format(a, b, c), (g,))
-                        output = cursor.fetchall()
-                        del d[:]
-                        for row in output:
-                            d.append(str(row[0]))
-                        pos = 0
-                        for (row) in output:
-                            string1 = str(d[pos])
-                            pos = pos + 1
-                            network_BSDNameList.append(string1)
-                        interfaceCount = interfaceCount + 1
-                    a = 'BSD Name'
-                    b = nINT
-                    c = 'IOMACAddress'
-                    g =
-                elif counter == 36:
+            while interfaceCount < len(network_Placeholder):
+                cursor.execute('SELECT "{}" FROM "{}" WHERE "{}" LIKE ?'.format(a, b, c), (g,))
+                output = cursor.fetchall()
+                del d[:]
+                for row in output:
+                    d.append(str(row[0]))
+                pos = 0
+                for (row) in output:
+                    string1 = str(d[pos])
+                    pos = pos + 1
+                    if counter == 35:
+                        network_BSDNameList.append(string1)
+                    elif counter == 36:
+                        network_HardwareList.append(string1)
+                    elif counter == 37:
+                        network_UUIDList.append(string1)
+                    elif counter == 38:
+                        network_IPv4ConfigMethodList.append(string1)
+                    elif counter == 39:
+                        network_IPv6ConfigMethodList.append(string1)
+                    elif counter == 40:
+                        network_TypeList.append(string1)
+                    elif counter == 41:
+                        network_UserDefinedNameList.append(string1)
+                    elif counter == 42:
+                        network_ProxiesExceptionsList.append(string1)
+                    elif counter == 43:
+                        network_SMBNetBiosNameList.append(string1)
+                    elif counter == 44:
+                        network_SMBWorkgroupList.append(string1)
+                interfaceCount = interfaceCount + 1
 
-                else:
-                    continue
             counter = counter + 1
+
+                    # End Tricky bit
+
+
+
+            #         interfaceCount = 0
+            #         while interfaceCount < network_interfaceList:
+            #             a = 'BSD Name'
+            #             b = nINT
+            #             c = 'IOMACAddress'
+            #             g = network_macAddressList[interfaceCount]
+            #
+            #             cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=?'.format(a, b, c), (g,))
+            #             output = cursor.fetchall()
+            #             del d[:]
+            #             for row in output:
+            #                 d.append(str(row[0]))
+            #             pos = 0
+            #             for (row) in output:
+            #                 string1 = str(d[pos])
+            #                 pos = pos + 1
+            #                 network_BSDNameList.append(string1)
+            #             interfaceCount = interfaceCount + 1
+            #
+            #         interfaceCount2 = 0
+            #         while interfaceCount2 < network_BSDNameList:
+            #             a = 'Hardware'
+            #             b = nDet
+            #             c = dName
+            #             g = network_BSDNameList[interfaceCount2]
+            #
+            #             cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=?'.format(a, b, c), (g,))
+            #             output = cursor.fetchall()
+            #             del d[:]
+            #             for row in output:
+            #                 d.append(str(row[0]))
+            #             pos = 0
+            #             for (row) in output:
+            #                 string1 = str(d[pos])
+            #                 pos = pos + 1
+            #                 network_HardwareList.append(string1)
+            #             interfaceCount2 = interfaceCount2 + 1
+            #     else:
+            #         continue
+            # counter = counter + 1
+
+
 
         else:
             # Calculates total app internet usage.
@@ -355,7 +478,13 @@ def NetworkInfo():
                 posx = posx + 1
             end = "yes"
 
-
+    print(network_IPv4ConfigMethodList)
+    print(network_IPv6ConfigMethodList)
+    print(network_TypeList)
+    print(network_UserDefinedNameList)
+    print(network_ProxiesExceptionsList)
+    print(network_SMBNetBiosNameList)
+    print(network_SMBWorkgroupList)
     # Domain_ActiveDirectory
     line1 = 0
     writePos1 = 0

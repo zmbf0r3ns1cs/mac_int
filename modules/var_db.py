@@ -176,6 +176,17 @@ network_routerHardwareAddressList = []  #
 network_routerIPAddressList = []        #
 network_SSIDList = []                   #
 network_BSDNameList = []                #
+network_HardwareList = []               #
+network_UUIDList = []                   #
+network_IPv4ConfigMethodList = []       #
+network_IPv6ConfigMethodList = []       #
+network_TypeList = []                   #
+network_UserDefinedNameList = []        #
+network_ProxiesExceptionsList = []      #
+network_SMBNetBiosNameList = []         #
+network_SMBWorkgroupList = []           #
+
+
 
 # Tables
 di = 'Dock Items'
@@ -190,7 +201,8 @@ users = 'Users'
 bI = 'Basic_Info'
 D_AD = 'Domain_ActiveDirectory'
 nDHCP = 'Network_DHCP'
-nINT = 'Network_Interfaces'
+nInterface = 'Network_Interfaces'
+nDet = 'Network_Details'
 
 # Columns
 sc = 'Session_Commands'
@@ -299,3 +311,24 @@ lL = 'LeaseLength'
 leaseSD = 'LeaseStartDate'
 rHA = 'RouterHardwareAddress'
 rIP = 'RouterIPAddress'
+dName = 'DeviceName'
+IPv4confm = 'IPv4.ConfigMethod'
+IPv6confm = 'IPv6.ConfigMethod'
+uDefN = 'UserDefinedName'
+pEL = 'Proxies.ExceptionsList'
+smbNBN = 'SMB.NetBiosName'
+smbWork = 'SMB.Workgroup'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
