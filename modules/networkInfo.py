@@ -174,6 +174,7 @@ def NetworkInfo():
                     a = pHN
                     b = Wifi
                 elif counter == 27:  # Network_DHCP Table Begins
+                    print("[~] Finding DHCP Info...")
                     a = 'Interface'
                     b = nDHCP
                 elif counter == 28:
@@ -495,14 +496,8 @@ def NetworkInfo():
                 posx = posx + 1
             end = "yes"
 
-    print(network_AllHardwareList)
-    print(network_AllTypeList)
-    print(network_AllUserDefinedNameList)
-    print(network_AllProxiesExceptionsList)
-    print(network_AllSMBNetBiosNameList)
-    print(network_AllSMBWorkgroupList)
-    print(network_AllSMBWorkgroupList)
     # Domain_ActiveDirectory
+    print("[~] Making things Nice...")
     line1 = 0
     writePos1 = 0
     while line1 < len(network_domainList):
