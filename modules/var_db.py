@@ -175,7 +175,7 @@ network_leaseStartDateList = []         #
 network_routerHardwareAddressList = []  #
 network_routerIPAddressList = []        #
 network_SSIDList = []                   #
-network_BSDNameList = []                #
+network_BSDNameList = []                # DHCP for current
 network_HardwareList = []               #
 network_UUIDList = []                   #
 network_IPv4ConfigMethodList = []       #
@@ -185,7 +185,15 @@ network_UserDefinedNameList = []        #
 network_ProxiesExceptionsList = []      #
 network_SMBNetBiosNameList = []         #
 network_SMBWorkgroupList = []           #
-
+network_AllHardwareList = []            # DHCP all others
+network_AllUUIDList = []                #
+network_AllIPv4ConfigMethodList = []    #
+network_AllIPv6ConfigMethodList = []    #
+network_AllTypeList = []                #
+network_AllUserDefinedNameList = []     #
+network_AllProxiesExceptionsList = []   #
+network_AllSMBNetBiosNameList = []      #
+network_AllSMBWorkgroupList = []        #
 
 
 # Tables
@@ -318,7 +326,7 @@ uDefN = 'UserDefinedName'
 pEL = 'Proxies.ExceptionsList'
 smbNBN = 'SMB.NetBiosName'
 smbWork = 'SMB.Workgroup'
-
+hardware = 'Hardware'
 
 
 

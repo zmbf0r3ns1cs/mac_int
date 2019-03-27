@@ -147,7 +147,54 @@ internet_QuarantineOURL_List = []    #
 internet_QuarantineOTitle_List = []  #
 internet_QuarantineDURL_List = []    #
 
-network_domainList = []     # Network Information
+network_domainList = []                 # Network Information
+network_forestList = []                 #
+network_trustDomainList = []            #
+network_trustAccList = []               #
+network_nodeNameList = []               #
+network_trustKPrincipalList = []        #
+network_allowmultiDomainList = []       #
+network_cacheLastUserLogonList = []     #
+network_wifiNameList = []               # Wifi Table
+network_SSIDStringList = []             #
+network_SecurityTypeList = []           #
+network_lastConnectedList = []          #
+network_roamingProfileTypeList = []     #
+network_lastConnectedChannelList = []   #
+network_otherChannelHistoryList = []    #
+network_ClosedList = []                 #
+network_PasspointList = []              #
+network_DisabledList = []               #
+network_personalHotspotList = []        #
+network_possiblyHiddenNetworkList = []  #
+network_interfaceList = []              # Network_DHCP Table
+network_macAddressList = []             #
+network_IPAddressList = []              #
+network_leaseLengthList = []            #
+network_leaseStartDateList = []         #
+network_routerHardwareAddressList = []  #
+network_routerIPAddressList = []        #
+network_SSIDList = []                   #
+network_BSDNameList = []                # DHCP for current
+network_HardwareList = []               #
+network_UUIDList = []                   #
+network_IPv4ConfigMethodList = []       #
+network_IPv6ConfigMethodList = []       #
+network_TypeList = []                   #
+network_UserDefinedNameList = []        #
+network_ProxiesExceptionsList = []      #
+network_SMBNetBiosNameList = []         #
+network_SMBWorkgroupList = []           #
+network_AllHardwareList = []            # DHCP all others
+network_AllUUIDList = []                #
+network_AllIPv4ConfigMethodList = []    #
+network_AllIPv6ConfigMethodList = []    #
+network_AllTypeList = []                #
+network_AllUserDefinedNameList = []     #
+network_AllProxiesExceptionsList = []   #
+network_AllSMBNetBiosNameList = []      #
+network_AllSMBWorkgroupList = []        #
+
 
 # Tables
 di = 'Dock Items'
@@ -161,6 +208,9 @@ q = 'Quarantine'
 users = 'Users'
 bI = 'Basic_Info'
 D_AD = 'Domain_ActiveDirectory'
+nDHCP = 'Network_DHCP'
+nInterface = 'Network_Interfaces'
+nDet = 'Network_Details'
 
 # Columns
 sc = 'Session_Commands'
@@ -249,6 +299,38 @@ system_Checked = 'Error'
 system_Backup = 'Error'
 system_Mounted = 'Error'
 network_d = 'domain'
+tac = 'trustaccount'
+nn = 'node name'
+tkp = 'trustkerberosprincipal'
+allowmulti = 'allow multi-domain'
+cLUL = 'cache last user logon'
+ssids = 'SSIDString'
+sT = 'Security Type'
+lC = 'Last connected'
+rPT = 'Roaming profile type'
+lconnC = 'Last connected channel'
+oCH = 'Other channel history'
+pHot = 'Personal Hotspot'
+pHN = 'Possibly hidden network'
+Wifi = 'Wifi'
+Mac = 'Mac_Address'
+IP = 'IPAddress'
+lL = 'LeaseLength'
+leaseSD = 'LeaseStartDate'
+rHA = 'RouterHardwareAddress'
+rIP = 'RouterIPAddress'
+dName = 'DeviceName'
+IPv4confm = 'IPv4.ConfigMethod'
+IPv6confm = 'IPv6.ConfigMethod'
+uDefN = 'UserDefinedName'
+pEL = 'Proxies.ExceptionsList'
+smbNBN = 'SMB.NetBiosName'
+smbWork = 'SMB.Workgroup'
+hardware = 'Hardware'
+
+
+
+
 
 
 

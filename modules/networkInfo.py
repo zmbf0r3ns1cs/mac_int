@@ -415,55 +415,72 @@ def NetworkInfo():
                     elif counter == 44:
                         network_SMBWorkgroupList.append(string1)
                 interfaceCount = interfaceCount + 1
-
             counter = counter + 1
 
                     # End Tricky bit
 
-
-
-            #         interfaceCount = 0
-            #         while interfaceCount < network_interfaceList:
-            #             a = 'BSD Name'
-            #             b = nINT
-            #             c = 'IOMACAddress'
-            #             g = network_macAddressList[interfaceCount]
-            #
-            #             cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=?'.format(a, b, c), (g,))
-            #             output = cursor.fetchall()
-            #             del d[:]
-            #             for row in output:
-            #                 d.append(str(row[0]))
-            #             pos = 0
-            #             for (row) in output:
-            #                 string1 = str(d[pos])
-            #                 pos = pos + 1
-            #                 network_BSDNameList.append(string1)
-            #             interfaceCount = interfaceCount + 1
-            #
-            #         interfaceCount2 = 0
-            #         while interfaceCount2 < network_BSDNameList:
-            #             a = 'Hardware'
-            #             b = nDet
-            #             c = dName
-            #             g = network_BSDNameList[interfaceCount2]
-            #
-            #             cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=?'.format(a, b, c), (g,))
-            #             output = cursor.fetchall()
-            #             del d[:]
-            #             for row in output:
-            #                 d.append(str(row[0]))
-            #             pos = 0
-            #             for (row) in output:
-            #                 string1 = str(d[pos])
-            #                 pos = pos + 1
-            #                 network_HardwareList.append(string1)
-            #             interfaceCount2 = interfaceCount2 + 1
-            #     else:
-            #         continue
-            # counter = counter + 1
-
-
+        elif counter in (45, 46, 47, 48, 49, 50, 51, 52, 53):
+            while counter in (45, 46, 47, 48, 49, 50, 51, 52, 53):
+                if counter == 45:  # Network_DHCP Table Begins
+                    a = hardware
+                    b = nDet
+                elif counter == 46:
+                    a = 'UUID'
+                    b = nDet
+                elif counter == 47:
+                    a = IPv4confm
+                    b = nDet
+                elif counter == 48:
+                    a = IPv6confm
+                    b = nDet
+                elif counter == 49:
+                    a = 'Type'
+                    b = nDet
+                elif counter == 50:
+                    a = uDefN
+                    b = nDet
+                elif counter == 51:
+                    a = pEL
+                    b = nDet
+                elif counter == 52:
+                    a = smbNBN
+                    b = nDet
+                elif counter == 53:
+                    a = smbWork
+                    b = nDet
+                else:
+                    print("A counting error has occurred")
+                cursor.execute('SELECT "{}" FROM "{}"'.format(a, b),)
+                output = cursor.fetchall()
+                del d[:]
+                for row in output:
+                    d.append(str(row[0]))
+                pos = 0
+                for (row) in output:
+                    string1 = str(d[pos])
+                    pos = pos + 1
+                    # Volume Name List Start
+                    if counter == 45:
+                        network_AllHardwareList.append(string1)
+                    elif counter == 46:
+                        network_AllUUIDList.append(string1)
+                    elif counter == 47:
+                        network_AllIPv4ConfigMethodList.append(string1)
+                    elif counter == 48:
+                        network_AllIPv6ConfigMethodList.append(string1)
+                    elif counter == 49:
+                        network_AllTypeList.append(string1)
+                    elif counter == 50:
+                        network_AllUserDefinedNameList.append(string1)
+                    elif counter == 51:
+                        network_AllProxiesExceptionsList.append(string1)
+                    elif counter == 52:
+                        network_AllSMBNetBiosNameList.append(string1)
+                    elif counter == 53:
+                        network_AllSMBWorkgroupList.append(string1)
+                    else:
+                        continue
+                counter = counter + 1
 
         else:
             # Calculates total app internet usage.
@@ -478,18 +495,19 @@ def NetworkInfo():
                 posx = posx + 1
             end = "yes"
 
-    print(network_IPv4ConfigMethodList)
-    print(network_IPv6ConfigMethodList)
-    print(network_TypeList)
-    print(network_UserDefinedNameList)
-    print(network_ProxiesExceptionsList)
-    print(network_SMBNetBiosNameList)
-    print(network_SMBWorkgroupList)
+    print(network_AllHardwareList)
+    print(network_AllTypeList)
+    print(network_AllUserDefinedNameList)
+    print(network_AllProxiesExceptionsList)
+    print(network_AllSMBNetBiosNameList)
+    print(network_AllSMBWorkgroupList)
+    print(network_AllSMBWorkgroupList)
     # Domain_ActiveDirectory
     line1 = 0
     writePos1 = 0
     while line1 < len(network_domainList):
-        file.write("Network Information\n\n")
+        file.write("Network Information\n")
+        file.write("--------------------------------\n\n")
         file.write("Domain name: " + str(network_domainList[writePos1]) + "\nForest: " + str(
             network_forestList[writePos1]) + "\nTrust Domain name: " + str(
             network_trustDomainList[writePos1]) + "\nTrust Account: " + str(
@@ -532,9 +550,39 @@ def NetworkInfo():
             network_SSIDList[writePos1]) + "\nIP Address: " + str(
             network_IPAddressList[writePos1]) + "\nIP Lease Start Date: " + str(
             network_leaseStartDateList[writePos1]) + "\nIP Lease Length: " + str(
-            network_leaseLengthList[writePos1]) + "\nRouter IP Addressl: " + str(
-            network_routerIPAddressList[writePos1]) + "\nARouter Hardware Address?: " + str(
-            network_routerHardwareAddressList[writePos1]) + "\n")
+            network_leaseLengthList[writePos1]) + "\nRouter IP Address: " + str(
+            network_routerIPAddressList[writePos1]) + "\nRouter Hardware Address?: " + str(
+            network_routerHardwareAddressList[writePos1]) + "\nDHCP OpenBSD Name: " + str(
+            network_BSDNameList[writePos1]) + "\nDHCP Instance Hardware Connection: " + str(
+            network_HardwareList[writePos1]) + "\nNetwork UUID: " + str(
+            network_UUIDList[writePos1]) + "\nIPv4 Configuration Method: " + str(
+            network_IPv4ConfigMethodList[writePos1]) + "\nIPv6 Configuration Method: " + str(
+            network_IPv6ConfigMethodList[writePos1]) + "\nNetwork Connection Type: " + str(
+            network_TypeList[writePos1]) + "\nUser Defined Name: " + str(
+            network_UserDefinedNameList[writePos1]) + "\nList of Proxies Exceptions: " + str(
+            network_ProxiesExceptionsList[writePos1]) + "\nSMB NetBios Name: " + str(
+            network_SMBNetBiosNameList[writePos1]) + "\nSMB Workgroup: " + str(
+            network_SMBWorkgroupList[writePos1]) + "\n")
+        line1 = line1 + 1
+        writePos1 = writePos1 + 1
+    file.write("\n\n")
+
+    # All other Network_DHCP Details
+    line1 = 0
+    writePos1 = 0
+    file.write("All other DHCP interface Details\n")
+    file.write("-----------------------------------------\n\n")
+    while line1 < len(network_AllHardwareList):
+        file.write("ALL DHCP Hardware for Connections: " + str(
+            network_AllHardwareList[writePos1]) + "\nAll Network UUIDs: " + str(
+            network_AllUUIDList[writePos1]) + "\nAll IPv4 Configuration Methods: " + str(
+            network_AllIPv4ConfigMethodList[writePos1]) + "\nAll IPv6 Configuration Methods: " + str(
+            network_AllIPv6ConfigMethodList[writePos1]) + "\nAll Network Connection Types: " + str(
+            network_AllTypeList[writePos1]) + "\nAll User Defined Names: " + str(
+            network_AllUserDefinedNameList[writePos1]) + "\nAll Lists of Proxies Exceptions: " + str(
+            network_AllProxiesExceptionsList[writePos1]) + "\nAll SMB NetBios Names: " + str(
+            network_AllSMBNetBiosNameList[writePos1]) + "\nAll SMB Workgroups: " + str(
+            network_AllSMBWorkgroupList[writePos1]) + "\n\n")
         line1 = line1 + 1
         writePos1 = writePos1 + 1
     file.write("\n\n")

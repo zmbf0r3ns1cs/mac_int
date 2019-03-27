@@ -545,7 +545,7 @@ def internetSearchRun(output_dir, input_path, user_name):
                 line1 = 0
                 writePos1 = 0
                 if line1 != len(internet_SafariLSName_List):
-                    file.write(str(userSearch) + " had these URLs auto-launch from their last closed Safari session:\n")
+                    file.write("These URLs auto- saved from " + str(userSearch) + "'s last closed Safari session:\n")
                 else:
                     file.write(str(userSearch) + " has no Safari searches saved from their last session\n")
                 while line1 < len(internet_SafariLSName_List):
