@@ -1,22 +1,26 @@
-# Query Logic for systemInfo v1.0
-# Justin Boncaldo (@boncaldoj) 2019
+# Query Logic for System Information v1.0
+# Justin Boncaldo (@boncaldoj), Zachary Burnham (@zmbf0r3ns1cs) 2019
 # ----------------------------------------------------------
 
 import sqlite3
 import re
 from var_db import *
 
+# Start of function called upon by Main Function (mac_int.py)
 def systemInfoRun(output_dir, input_path, user_name):
-    file = open(output_dir + "\\mac_int-SystemINFO-" + user_name + "-Output.txt", 'w+')
+    # Output file and DB specified in mac_int.py
+    file = open(output_dir + "\\mac_int-SYSTEMINFO-" + user_name + "-Output.txt", 'w+')
     connection = sqlite3.connect(input_path)
-    #connection = sqlite3.connect("E:\\CAPSTONE\\Mac_apt_Output-20190117T201041Z-001\\Mac_apt_Output\\mac_apt02.db")
     cursor = connection.cursor()
 
-    # Mounted Volume variables
+    # Define Global variables
     global a, b, c, g, h, i, output, userSearch
 
+    # Username search (determined in mac_int.py)
+    userSearch = user_name
+
     def systemInfo():
-        global a, b, c, g, h, i, output, userSearch
+        #global a, b, c, g, h, i, output, userSearch
         # Define strings
         d = []
         e = []
@@ -25,11 +29,10 @@ def systemInfoRun(output_dir, input_path, user_name):
         counter = 0
         output = None
 
-        userSearch = user_name
-        print("[#] Parsing System Info...")
+        print("[#] Parsing System Information...")
         while end != "yes":
             if counter in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18):
-                print("[~] 0%...")
+                print("[~] Grabbing Model and macOS Version...")
                 while counter in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18):
                     if counter == 0:
                         a = 'Data'
@@ -42,7 +45,7 @@ def systemInfoRun(output_dir, input_path, user_name):
                         c = n
                         g = "OSX Version"
                     elif counter == 2:
-                        print("[~] 15%...")
+                        print("[~] Grabbing Serial Number...")
                         a = 'Description'
                         b = bI
                         c = n
@@ -58,17 +61,19 @@ def systemInfoRun(output_dir, input_path, user_name):
                         c = n
                         g = "ComputerName"
                     elif counter == 5:
-                        print("[~] 35%...")
+                        print("[~] Grabbing Hostname...")
                         a = 'Data'
                         b = bI
                         c = n
                         g = "LocalHostName"
                     elif counter == 6:
+                        print("[~] Grabbing Timezone...")
                         a = 'Data'
                         b = bI
                         c = n
                         g = "TimeZone Set"
                     elif counter == 7:
+                        print("[~] Grabbing Last User Logon...")
                         a = 'Data'
                         b = bI
                         c = n
@@ -79,7 +84,6 @@ def systemInfoRun(output_dir, input_path, user_name):
                         c = n
                         g = "lastUser"
                     elif counter == 9:
-                        print("[~] 40%...")
                         a = 'Data'
                         b = bI
                         c = n
@@ -90,6 +94,7 @@ def systemInfoRun(output_dir, input_path, user_name):
                         c = n
                         g = "LoginwindowText"
                     elif counter == 11:
+                        print("[~] Grabbing File System Metadata...")
                         a = 'Data'
                         b = bI
                         c = n
@@ -100,7 +105,6 @@ def systemInfoRun(output_dir, input_path, user_name):
                         c = n
                         g = "Number of Folders"
                     elif counter == 13:
-                        print("[~] 45%...")
                         a = 'Data'
                         b = bI
                         c = n
@@ -145,7 +149,7 @@ def systemInfoRun(output_dir, input_path, user_name):
                         pos = pos + 1
                         # Volume Name List Start
                         if counter == 0:
-                            print("[~] 50%...")
+                            print("[~] Grabbing Volume Metadata...")
                             system_Model = string1
                         elif counter == 1:
                             system_version1 = string1
@@ -154,7 +158,7 @@ def systemInfoRun(output_dir, input_path, user_name):
                         elif counter == 3:
                             system_serial = string1
                         elif counter == 4:
-                            print("[~] 60%...")
+                            #print("[~] 60%...")
                             system_computerName = string1
                         elif counter == 5:
                             system_localHostName = string1
@@ -167,7 +171,7 @@ def systemInfoRun(output_dir, input_path, user_name):
                         elif counter == 9:
                             system_lastLoginTime = string1
                         elif counter == 10:
-                            print("[~] 70%...")
+                            #print("[~] 70%...")
                             system_loginText = string1
                         elif counter == 11:
                             system_NumberofFiles = string1
@@ -178,14 +182,14 @@ def systemInfoRun(output_dir, input_path, user_name):
                         elif counter == 14:
                             system_Created = string1
                         elif counter == 15:
-                            print("[~] 80%...")
+                            #print("[~] 80%...")
                             system_Modified = string1
                         elif counter == 16:
                             system_Checked = string1
                         elif counter == 17:
                             system_Backup = string1
                         elif counter == 18:
-                            print("[~] 90%...")
+                            #print("[~] 90%...")
                             system_Mounted = string1
                         else:
                             continue
@@ -229,5 +233,5 @@ def systemInfoRun(output_dir, input_path, user_name):
     systemInfo()
 
     # Show When Parsing Completed
-    print("[#] 100%...")
+    #print("[~] 100%...")
     print("[*] System Information Parsing Completed!")

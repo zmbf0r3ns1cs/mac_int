@@ -6,6 +6,7 @@ import sqlite3
 import re
 from var_db import *
 
+# Start of function called upon by Main Function (mac_int.py)
 def internetSearchRun(output_dir, input_path, user_name):
     # Output file and DB specified in mac_int.py
     file = open(output_dir + "\\mac_int-INTERNETSEARCH-" + user_name +"-Output.txt", 'w+')
@@ -26,7 +27,7 @@ def internetSearchRun(output_dir, input_path, user_name):
         output = None
 
         userSearch = user_name
-        print("[#] Parsing for " + str(userSearch) + "'s Safari Data...")
+        print("[#] Parsing for " + str(userSearch) + "'s Internet Search History...")
         while end != "yes":
             if counter in (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
                         17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31,

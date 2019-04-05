@@ -6,6 +6,7 @@ import sqlite3
 import re
 from var_db import *
 
+# Start of function called upon by Main Function (mac_int.py)
 def installedAppsRun(output_dir, input_path, user_name):
     connection = sqlite3.connect(input_path)
     cursor = connection.cursor()
@@ -761,7 +762,7 @@ def installedAppsRun(output_dir, input_path, user_name):
     Y = 'Y'
     N = 'N'
     while loop == "no":
-        nonUserSpecific = input("[!] Do you want to include some non-user specific items? [Y/N]: ")
+        nonUserSpecific = input("[!] Do you want to include non-user specific items for Installed Applications? [Y/N]: ")
         print("------------------------------------------------------------")
         if nonUserSpecific == Y:
             file = open(output_dir + "\\mac_int-INSTALLEDAPPS-ALL-Output.txt", 'w+')

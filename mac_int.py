@@ -20,10 +20,10 @@
 '''
 import argparse
 import os
-from modules import mountedVolumes, installedApps, internetSearch, userInfo
+from modules import mountedVolumes, installedApps, internetSearch, userInfo, systemInfo, networkInfo
 
-__VERSION = "0.2"
-__STATUS = "ALPHA"
+__VERSION = "1.0"
+__STATUS = "Release Candidate"
 __PROGRAMNAME = "macOS Artifact Intelligence Tool"
 
 #### MAIN PROGRAM ####
@@ -34,55 +34,84 @@ parser = argparse.ArgumentParser(description='mac_int is a program designed to a
 
 parser.add_argument('input_path', help='Path to mac_apt SQLITE Database output')
 parser.add_argument('user_name', help='Username of target account')
-parser.add_argument('-o', '--output_dir', help='Desired DIRECTORY to store mac_int output files')
+parser.add_argument('-a', '--all', action="store_true", help='Run a full scan utilizing all available mac_int modules')
+parser.add_argument('--output_path', help='Desired DIRECTORY to store mac_int output files')
+parser.add_argument('--html', action="store_true", help='Show results in HTML format')
 parser.add_argument('-v', '--version', action='version', version='%(prog)s {} ({})'.format(__VERSION, __STATUS))
 
 modules = parser.add_argument_group('available modules')
 modules.add_argument('-mv', '--MountedVolumes', action="store_true", help='Runs for Mounted Volume Info')
-modules.add_argument('-ui', '--UserInfo', action="store_true", help='Runs for User Info')
+modules.add_argument('-ui', '--UserInfo', action="store_true", help='Runs for User Information')
 modules.add_argument('-ia', '--InstalledApps', action="store_true", help='Runs for Installed Application Info')
-modules.add_argument('-na', '--NetworkActivity', action="store_true", help='Runs for Network Activity Info')
 modules.add_argument('-is', '--InternetSearch', action="store_true", help='Runs for Internet Searches')
-#arg_parser.add_argument('-t', '--target_info', help='Topics: Mounted Volumes, Network Activity, User Information, Installed Apps')
-#arg_parser.add_argument('-c', '--case_type', help='ALTERNATIVE to TARGET_INFO: Incident Response (IR), IP Theft (IP)')
+modules.add_argument('-ni', '--NetworkInfo', action="store_true", help='Runs for Network Information')
+modules.add_argument('-si', '--SystemInfo', action="store_true", help='Runs for System Information')
 args = parser.parse_args()
 
 # Establish Actions
-if args.output_dir:
-    print("[#] Output directory for mac_int results set to '{}'".format(args.output_dir))
+if args.output_path:
+    print("[#] Output path for mac_int results set to '{}'".format(args.output_path))
 else:
     # Output to same directory as program by default
     cwd = os.getcwd()
-    print("[!] No Output Directory specified!")
+    print("[!] No Output Path specified!")
     print("[#] Using current directory ({}) for mac_int results...".format(cwd))
-    args.output_dir = cwd
+    args.output_path = cwd
 
-# Mounted Devices Search
-if args.MountedVolumes:
-    mountedVolumes.mountedVolumesRun(args.output_dir, args.input_path, args.user_name)
+if args.all:
+    args.MountedVolumes = True
+    args.UserInfo = True
+    args.InstalledApps = True
+    args.InternetSearch = True
+    args.NetworkInfo = True
+    args.SystemInfo = True
 else:
     exit
 
-# User Info Search
+# Mounted Devices Search
+if args.MountedVolumes:
+    mountedVolumes.mountedVolumesRun(args.output_path, args.input_path, args.user_name)
+    if args.all:
+        print("------------------------------------------------------------")
+else:
+    exit
+
+# User Information Search
 if args.UserInfo:
-    userInfo.userInfoRun(args.output_dir, args.input_path, args.user_name)
+    userInfo.userInfoRun(args.output_path, args.input_path, args.user_name)
+    if args.all:
+        print("------------------------------------------------------------")
 else:
     exit
 
 # Installed Apps Search
 if args.InstalledApps:
-    installedApps.installedAppsRun(args.output_dir, args.input_path, args.user_name)
-else:
-    exit
-
-# Network Activity Search
-if args.NetworkActivity:
-    mountedVolumes.mountedVolumesRun(args.output_dir, args.input_path, args.user_name)
+    installedApps.installedAppsRun(args.output_path, args.input_path, args.user_name)
+    if args.all:
+        print("------------------------------------------------------------")
 else:
     exit
 
 # Internet Search
 if args.InternetSearch:
-    internetSearch.internetSearchRun(args.output_dir, args.input_path, args.user_name)
+    internetSearch.internetSearchRun(args.output_path, args.input_path, args.user_name)
+    if args.all:
+        print("------------------------------------------------------------")
+else:
+    exit
+
+# Network Information Search
+if args.NetworkInfo:
+    networkInfo.networkInfoRun(args.output_path, args.input_path, args.user_name)
+    if args.all:
+        print("------------------------------------------------------------")
+else:
+    exit
+
+# System Info Search
+if args.SystemInfo:
+    systemInfo.systemInfoRun(args.output_path, args.input_path, args.user_name)
+    if args.all:
+        print("------------------------------------------------------------")
 else:
     exit

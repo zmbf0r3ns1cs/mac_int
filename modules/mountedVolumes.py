@@ -7,6 +7,7 @@ import os
 import re
 from var_db import *
 
+# Start of function called upon by Main Function (mac_int.py)
 def mountedVolumesRun(output_dir, input_path, user_name):
     # Output file and DB specified in mac_int.py
     file = open(output_dir + "\\mac_int-MOUNTEDVOLUMES-" + user_name +"-Output.txt", 'w+')
