@@ -43,6 +43,6 @@ mac_int operates off pre-defined Python3 scripts that are called upon using comm
 | MountedVolumes | Parse for information pertaining to **mounted volumes** that are or were on the system, including Names, Creation Dates, First and Last Seen Dates, and Bash Sessions | RecentItems, Spotlight-1-store, BashSessions |
 | UserInfo | Parse for all related **user information** on the system, including information such as mounted volumes and installed applications | InstallHistory, NetUsage, RecentItems, Safari, Dock Items |
 | InstalledApps | A Full and/or User-Based search for **updates**, **downloaded** and **installed applications** with their corresponding **network usage** | InstallHistory, Dock Items, RecentItems, Safari, NetUsage, BashSessions, Quarantine, Spotlight-1-store |
-| InternetSearch | Parse for any **internet searches** that occured | Safari, Quarantine |
+| InternetSearch | Parse for any **internet searches** that occured, including downloads, frequently visited sites, Safari history, and recently closed tabs | Safari, Quarantine |
 | NetworkInfo | Parse for any **network activity** that occured, including info such as WiFi, DHCP, AD, and network usage | Domain_ActiveDirectory, WiFi, Network_DHCP, Network_Interfaces, Network_Details |
-| SystemInfo | Parse for any **internet searches** that occured | Basic_Info |
+| SystemInfo | Parse for **system information** pertaining to the host, including hostname, timezone, model, macOS version, last logged in user, and file system metadata | Basic_Info |
