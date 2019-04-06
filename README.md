@@ -29,9 +29,9 @@ mac_int operates off pre-defined Python3 scripts that are called upon using comm
 
 | Module | Description | mac_apt Connections (Tables) |
 | --- | --- | --- |
-| MountedVolumes | Names, Creation Dates, First and Last Seen Dates, and Bash Sessions | RecentItems, Spotlight-1-store, BashSessions |
+| MountedVolumes | Parse for information pertaining to **mounted volumes** that are or were on the system, including Names, Creation Dates, First and Last Seen Dates, and Bash Sessions | RecentItems, Spotlight-1-store, BashSessions |
 | UserInfo | Parse for all related **user information** on the system, including information such as mounted volumes and installed applications | InstallHistory, NetUsage, RecentItems, Safari, Dock Items |
-| InstalledApps | Total or User-Based search for **updates**, **downloaded** and **installed applications** with their corresponding **network usage** | InstallHistory, Dock Items, RecentItems, Safari, NetUsage, BashSessions, Quarantine, Spotlight-1-store |
+| InstalledApps | A Complete and/or User-Based search for **updates**, **downloaded** and **installed applications** with their corresponding **network usage** | InstallHistory, Dock Items, RecentItems, Safari, NetUsage, BashSessions, Quarantine, Spotlight-1-store |
 | InternetSearch | Parse for any **internet searches** that occured | Safari, Quarantine |
 | NetworkInfo | Parse for any **network activity** that occured, including info such as WiFi, DHCP, AD, and network usage | Domain_ActiveDirectory, WiFi, Network_DHCP, Network_Interfaces, Network_Details |
 | SystemInfo | Parse for any **internet searches** that occured | Basic_Info |
