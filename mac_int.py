@@ -35,7 +35,7 @@ parser = argparse.ArgumentParser(description='mac_int is a program designed to a
 parser.add_argument('input_path', help='Path to mac_apt SQLITE Database output')
 parser.add_argument('user_name', help='Username of target account')
 parser.add_argument('-a', '--all', action="store_true", help='Run a full scan utilizing all available mac_int modules')
-parser.add_argument('--output_path', help='Desired DIRECTORY to store mac_int output files')
+parser.add_argument('-o', '--output_path', help='Desired DIRECTORY to store mac_int output files')
 parser.add_argument('--html', action="store_true", help='Show results in HTML format')
 parser.add_argument('-v', '--version', action='version', version='%(prog)s {} ({})'.format(__VERSION, __STATUS))
 
