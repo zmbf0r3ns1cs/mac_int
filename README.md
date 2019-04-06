@@ -26,7 +26,7 @@ python mac_int -h
 
 Below you will find an example of mac_int usage on Windows 10, utilizing the `-mv` switch to run the Mounted Volumes module with username *"justin.boncaldo"* and output to a specified directory:
 ```
-mac_int.py C:\Users\burnh\Desktop\Capstone\Mac_apt_Output\mac_apt02.db justin.boncaldo -o C:\Users\burnh\Desktop\Capstone\Mac_apt_Output -mv
+mac_int.py C:\Users\burnh\Desktop\Capstone\Mac_apt_Output\mac_apt02.db justin.boncaldo -o C:\Users\burnh\Desktop\Capstone\Output -mv
 ```
 
 Below is another example, this time utilizing the `-a` switch to run all mac_int modules together:
