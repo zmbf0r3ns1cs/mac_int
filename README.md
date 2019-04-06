@@ -38,7 +38,7 @@ mac_int operates off pre-defined Python3 scripts that are called upon using comm
 
 ### Example Usage
 
-Below you will find an example of mac_int usage, utilizing the `-mv` switch to run the Mounted Volumes module with username *"justin.boncaldo"* and output to a specified directory:
+Below you will find an example of mac_int usage on Windows 10, utilizing the `-mv` switch to run the Mounted Volumes module with username *"justin.boncaldo"* and output to a specified directory:
 ```
 mac_int.py C:\Users\burnh\Desktop\Capstone\Mac_apt_Output\mac_apt02.db justin.boncaldo -o C:\Users\burnh\Desktop\Capstone\Mac_apt_Output -mv
 ```
