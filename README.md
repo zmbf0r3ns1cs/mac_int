@@ -22,6 +22,17 @@ To see all available options, run the following invocation:
 ```
 python mac_int -h 
 ```
+#### Example Usage
+
+Below you will find an example of mac_int usage on Windows 10, utilizing the `-mv` switch to run the Mounted Volumes module with username *"justin.boncaldo"* and output to a specified directory:
+```
+mac_int.py C:\Users\burnh\Desktop\Capstone\Mac_apt_Output\mac_apt02.db justin.boncaldo -o C:\Users\burnh\Desktop\Capstone\Mac_apt_Output -mv
+```
+
+Below is another example, this time utilizing the `-a` switch to run all mac_int modules together:
+```
+mac_int.py C:\Users\burnh\Desktop\Capstone\Mac_apt_Output\mac_apt02.db justin.boncaldo -a 
+```
 
 ### Current Modules
 
@@ -35,15 +46,3 @@ mac_int operates off pre-defined Python3 scripts that are called upon using comm
 | InternetSearch | Parse for any **internet searches** that occured | Safari, Quarantine |
 | NetworkInfo | Parse for any **network activity** that occured, including info such as WiFi, DHCP, AD, and network usage | Domain_ActiveDirectory, WiFi, Network_DHCP, Network_Interfaces, Network_Details |
 | SystemInfo | Parse for any **internet searches** that occured | Basic_Info |
-
-### Example Usage
-
-Below you will find an example of mac_int usage on Windows 10, utilizing the `-mv` switch to run the Mounted Volumes module with username *"justin.boncaldo"* and output to a specified directory:
-```
-mac_int.py C:\Users\burnh\Desktop\Capstone\Mac_apt_Output\mac_apt02.db justin.boncaldo -o C:\Users\burnh\Desktop\Capstone\Mac_apt_Output -mv
-```
-
-Below is another example, this time utilizing the `-a` switch to run all mac_int modules together:
-```
-mac_int.py C:\Users\burnh\Desktop\Capstone\Mac_apt_Output\mac_apt02.db justin.boncaldo -a 
-```
