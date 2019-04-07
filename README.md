@@ -46,3 +46,7 @@ mac_int operates off pre-defined Python3 scripts that are called upon using comm
 | InternetSearch | Parse for any **internet searches** that occured, including downloads, frequently visited sites, Safari history, and recently closed tabs | Safari, Quarantine |
 | NetworkInfo | Parse for any **network activity** that occured, including info such as WiFi, DHCP, AD, and network usage | Domain_ActiveDirectory, WiFi, Network_DHCP, Network_Interfaces, Network_Details |
 | SystemInfo | Parse for **system information** pertaining to the host, including hostname, timezone, model, macOS version, last logged in user, and file system metadata | Basic_Info |
+
+### mac_int Code Architecture
+
+![Screenshot](/images/mac_intCode_Architecture.PNG)
