@@ -51,4 +51,4 @@ mac_int operates off pre-defined Python3 scripts that are called upon using comm
 
 mac_int's modules are designed to work by running as individual Python scripts, each querying a designated mac_apt SQLite database file for their respective information and writing the results to individual text files. If the user requests HTML format, mac_int will create temporary JSON files for each module that was run to store information for the HTML script to query. These files will auto-delete from the system upon process completion. 
 
-![Screenshot](/images/mac_intCode_Architecture.PNG)
+![Screenshot](/images/mac_intCodeArchitecture.PNG)
