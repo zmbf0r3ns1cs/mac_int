@@ -497,6 +497,73 @@ def networkInfoRun(output_dir, input_path, user_name):
                     posx = posx + 1
                 end = "yes"
 
+
+                # ------------------------------------------------
+
+                # create temp json file
+                filename = "tempnetworkInfo.json"
+
+                JSON = {
+                    "network_domainList": network_domainList,
+                    "network_forestList": network_forestList,
+                    "network_trustDomainList": network_trustDomainList,
+                    "network_trustAccList": network_trustAccList,
+                    "network_nodeNameList": network_nodeNameList,
+                    "network_trustKPrincipalList": network_trustKPrincipalList,
+                    "network_allowmultiDomainList": network_allowmultiDomainList,
+                    "network_cacheLastUserLogonList": network_cacheLastUserLogonList,
+                    "network_wifiNameList": network_wifiNameList,
+                    "network_SSIDStringList": network_SSIDStringList,
+                    "network_SecurityTypeList": network_SecurityTypeList,
+                    "network_lastConnectedList": network_lastConnectedList,
+                    "network_roamingProfileTypeList": network_roamingProfileTypeList,
+                    "network_lastConnectedChannelList": network_lastConnectedChannelList,
+                    "network_otherChannelHistoryList": network_otherChannelHistoryList,
+                    "network_ClosedList": network_ClosedList,
+                    "network_PasspointList": network_PasspointList,
+                    "network_DisabledList": network_DisabledList,
+                    "network_personalHotspotList": network_personalHotspotList,
+                    "network_possiblyHiddenNetworkList": network_possiblyHiddenNetworkList,
+                    "network_interfaceList": network_interfaceList,
+                    "network_macAddressList": network_macAddressList,
+                    "network_IPAddressList": network_IPAddressList,
+                    "network_leaseLengthList": network_leaseLengthList,
+                    "network_leaseStartDateList": network_leaseStartDateList,
+                    "network_routerHardwareAddressList": network_routerHardwareAddressList,
+                    "network_routerIPAddressList": network_routerIPAddressList,
+                    "network_SSIDList": network_SSIDList,
+                    "network_BSDNameList": network_BSDNameList,
+                    "network_HardwareList": network_HardwareList,
+                    "network_UUIDList": network_UUIDList,
+                    "network_IPv4ConfigMethodList": network_IPv4ConfigMethodList,
+                    "network_IPv6ConfigMethodList": network_IPv6ConfigMethodList,
+                    "network_TypeList": network_TypeList,
+                    "network_UserDefinedNameList": network_UserDefinedNameList,
+                    "network_ProxiesExceptionsList": network_ProxiesExceptionsList,
+                    "network_SMBNetBiosNameList": network_SMBNetBiosNameList,
+                    "network_SMBWorkgroupList": network_SMBWorkgroupList,
+                    "network_AllHardwareList": network_AllHardwareList,
+                    "network_AllUUIDList": network_AllUUIDList,
+                    "network_AllIPv4ConfigMethodList": network_AllIPv4ConfigMethodList,
+                    "network_AllIPv6ConfigMethodList": network_AllIPv6ConfigMethodList,
+                    "network_AllTypeList": network_AllTypeList,
+                    "network_AllUserDefinedNameList": network_AllUserDefinedNameList,
+                    "network_AllProxiesExceptionsList": network_AllProxiesExceptionsList,
+                    "network_AllSMBNetBiosNameList": network_AllSMBNetBiosNameList,
+                    "network_AllSMBWorkgroupList": network_AllSMBWorkgroupList,
+                    "inst_appName_List": inst_appName_List,
+                    "inst_totalNetUsage_List": inst_totalNetUsage_List,
+                    "inst_fSD_List": inst_fSD_List,
+                    "inst_lSD_List": inst_lSD_List,
+                    "inst_wifiIn_List": inst_wifiIn_List,
+                    "inst_wifiOut_List": inst_wifiOut_List,
+                    "inst_wiredIn_List": inst_wiredIn_List,
+                    "inst_wiredOut_List": inst_wiredOut_List
+                }
+                if filename:
+                    with open(filename, 'w') as f:
+                        json.dump(JSON, f)
+
         # Domain_ActiveDirectory
         print("[~] Making things Nice...")
         line1 = 0

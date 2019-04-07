@@ -4,6 +4,7 @@
 
 import sqlite3
 import re
+import json
 from var_db import *
 
 # Start of function called upon by Main Function (mac_int.py)
@@ -197,6 +198,36 @@ def systemInfoRun(output_dir, input_path, user_name):
 
             else:
                 end = "yes"
+                # ------------------------------------------------
+
+                # create temp json file
+                filename = "tempsystemInfo.json"
+
+                JSON = {
+                    "system_Model": system_Model,
+                    "system_version1": system_version1,
+                    "system_version2": system_version2,
+                    "system_serial": system_serial,
+                    "system_computerName": system_computerName,
+                    "system_localHostName": system_localHostName,
+                    "system_timezone": system_timezone,
+                    "system_lastUserName": system_lastUserName,
+                    "system_lastLoginStatus": system_lastLoginStatus,
+                    "system_lastLoginTime": system_lastLoginTime,
+                    "system_loginText": system_loginText,
+                    "system_NumberofFiles": system_NumberofFiles,
+                    "system_NumberofFolders": system_NumberofFolders,
+                    "system_blockSize": system_blockSize,
+                    "system_Created": system_Created,
+                    "system_Modified": system_Modified,
+                    "system_Checked": system_Checked,
+                    "system_Backup": system_Backup,
+                    "system_Mounted": system_Mounted
+
+                }
+                if filename:
+                    with open(filename, 'w') as f:
+                        json.dump(JSON, f)
 
                 # Recent Applications Write
                 file.write("Model Name: " + str(system_Model) + "\nOSX Version: " + str(
@@ -235,3 +266,6 @@ def systemInfoRun(output_dir, input_path, user_name):
     # Show When Parsing Completed
     #print("[~] 100%...")
     print("[*] System Information Parsing Completed!")
+
+
+

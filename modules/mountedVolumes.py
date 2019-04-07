@@ -201,3 +201,20 @@ def mountedVolumesRun(output_dir, input_path, user_name):
 
     # Show When Parsing Completed
     print("[*] Mounted Volume Parsing for " + user_name + " Completed!")
+    # ------------------------------------------------
+
+    # create temp json file
+    filename = "tempmountedVolumes.json"
+
+    JSON = {
+        "mount_volList": mount_volList,
+        "mount_crList": mount_crList,
+        "mount_fsList": mount_fsList,
+        "mount_lsList": mount_lsList,
+        "mount_bashList": mount_bashList,
+        "mount_ssList": mount_ssList,
+        "mount_seList": mount_seList
+    }
+    if filename:
+        with open(filename, 'w') as f:
+            json.dump(JSON, f)
