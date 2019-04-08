@@ -3,6 +3,7 @@ __pycache__/
 .DS_Store
 .vscode/
 *.pyc
+*.json
 
 # Test Files
 mac_int-MOUNTEDDEVICES-Output.txt
@@ -15,5 +16,4 @@ mac_int-USERINFO-justin.boncaldo-Output.txt
 mac_int-NETWORKINFO-justin.boncaldo-Output.txt
 mac_int-MOUNTEDVOLUMES-justin.boncaldo-Output.txt
 mac_int-INTERNETSEARCH-justin.boncaldo-Output.txt
-*.json
 modules/jsontest.py
