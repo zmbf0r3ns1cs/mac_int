@@ -5,6 +5,7 @@
 import sqlite3
 import os
 import re
+import json
 from var_db import *
 
 # Start of function called upon by Main Function (mac_int.py)
