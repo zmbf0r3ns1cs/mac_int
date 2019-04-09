@@ -505,6 +505,7 @@ def networkInfoRun(output_dir, input_path, user_name):
                 filename = "tempnetworkInfo.json"
 
                 JSON = {
+                    "user_name": user_name,
                     "network_domainList": network_domainList,
                     "network_forestList": network_forestList,
                     "network_trustDomainList": network_trustDomainList,

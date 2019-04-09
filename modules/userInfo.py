@@ -1071,6 +1071,7 @@ def userInfoRun(output_dir, input_path, user_name):
                 filename = "tempuserInfo.json"
 
                 JSON = {
+                    "user_name": user_name,
                     "internet_SafariDLName_List": internet_SafariDLName_List,
                     "internet_SafariDLURL_List": internet_SafariDLURL_List,
                     "internet_SafariDLDate_List": internet_SafariDLDate_List,

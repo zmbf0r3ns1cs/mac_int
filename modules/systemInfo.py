@@ -204,6 +204,7 @@ def systemInfoRun(output_dir, input_path, user_name):
                 filename = "tempsystemInfo.json"
 
                 JSON = {
+                    "user_name": user_name,
                     "system_Model": system_Model,
                     "system_version1": system_version1,
                     "system_version2": system_version2,

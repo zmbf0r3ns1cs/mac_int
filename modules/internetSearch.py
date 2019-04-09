@@ -455,6 +455,7 @@ def internetSearchRun(output_dir, input_path, user_name):
                 filename = "tempinternetSearch.json"
 
                 JSON = {
+                    "user_name": user_name,
                     "internet_SafariDLName_List": internet_SafariDLName_List,
                     "internet_SafariDLURL_List": internet_SafariDLURL_List,
                     "internet_SafariDLDate_List": internet_SafariDLDate_List,
@@ -658,35 +659,6 @@ def internetSearchRun(output_dir, input_path, user_name):
                     writePos1 = writePos1 + 1
                 file.write("\n\n")
 
-
-    # elif counter in (10, 11, 12, 13, 14, 15, 16, 17):
-    #     print("[~] Finding User Downloads...")
-    #     while counter in (10, 11, 12, 13, 14, 15, 16, 17):
-    #         if counter == 10:
-    #             a = n
-    #             b = ri
-    #             c = T
-    #             g = u
-    #             h = application
-    #             i = userSearch
-    #             print("A counting error has occurred")
-    #
-    #         cursor.execute('SELECT "{}" FROM "{}" WHERE "{}"=? AND "{}"=?'.format(a, b, c, g), (h, i))
-    #         output = cursor.fetchall()
-    #         del d[:]
-    #         for row in output:
-    #             d.append(str(row[0]))
-    #         pos = 0
-    #         for (row) in output:
-    #             string1 = str(d[pos])
-    #             pos = pos + 1
-    #             # Volume Name List Start
-    #             if counter == 10:
-    #                 user_recentIName_List.append(string1)
-    #                 user_riNLength1: int = len(user_recentIName_List)
-    #             else:
-    #                 continue
-    #         counter = counter + 1
 
     # Global Variables
     a = "None"

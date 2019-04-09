@@ -208,6 +208,7 @@ def mountedVolumesRun(output_dir, input_path, user_name):
     filename = "tempmountedVolumes.json"
 
     JSON = {
+        "user_name": user_name,
         "mount_volList": mount_volList,
         "mount_crList": mount_crList,
         "mount_fsList": mount_fsList,

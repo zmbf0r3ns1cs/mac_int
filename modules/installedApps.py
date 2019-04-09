@@ -643,6 +643,7 @@ def installedAppsRun(output_dir, input_path, user_name):
     filename = "tempinstalledApps.json"
 
     JSON = {
+        "user_name": user_name,
         "inst_processName1List": inst_processName1List,
         "inst_processName2List": inst_processName2List,
         "inst_processName3List": inst_processName3List,
