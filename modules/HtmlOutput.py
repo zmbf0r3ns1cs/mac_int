@@ -2021,7 +2021,7 @@ def htmlRun():
                     "</script> \n" +
                     #Footer
                     "<div class=footer> \n" +
-                        "\t<p> Footer Placeholder </p> \n" +
+                        "\t<p> Mac_Int Prototype </p> \n" +
                     "</div> \n" +
                     "</body> \n" +
                     "</html> \n")
