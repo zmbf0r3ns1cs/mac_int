@@ -1,7 +1,26 @@
-# HTML Output Script v1.0
-# Benjamin Estes (@Kokosnoot) 2019
-# ----------------------------------------------------------
+#Start of Imports from mountedVolumes.py
+# from mountedVolumes import mount_volList
+# from mountedVolumes import mount_crList
+# from mountedVolumes import mount_fsList
+# from mountedVolumes import mount_lsList
+# from mountedVolumes import mount_bashList
+# from mountedVolumes import mount_ssList
+# from mountedVolumes import mount_seList
 
+#Start of Imports from internetSearch.py
+#from internetSearch import internet_SafariDLName_List
+#from internetSearch import internet_SafariLSName_List
+#from internetSearch import internet_SafariRCName_List
+#from internetSearch import internet_SafariOISLTName_List
+#from internetSearch import internet_QuarantineName_List
+
+# from internetSearch import *
+# from userInfo import *
+# from installedApps import *
+# from networkInfo import *
+# from systemInfo import *
+
+#Other Imports
 import re
 import datetime
 import json
@@ -1389,7 +1408,18 @@ def htmlRun():
             file.write("<p>This User has not recently interacted with any volumes on the system.</p>")
         else:
             while RecentlyInteractedVolumesCounter <= RecentlyInteractedVolumesListLength - 1:
-                file.write("<strong>The volume named </strong><span>" + user_riNamevol_List[RecentlyInteractedVolumesCounter] + "</span><strong> was interacted with from the location </strong><span> " + user_riURLvol_List[RecentlyInteractedVolumesCounter] + "</span><strong> which was created on </strong><span>" + user_riInfovol_List[RecentlyInteractedVolumesCounter] + "</span><br><br><hr><br>\n")
+                DateAndTimeListRecentIntVolume = user_riInfovol_List[RecentlyInteractedVolumesCounter]
+                DateMatch = re.search(r"\d{4}\-\d{2}\-\d{2}", DateAndTimeListRecentIntVolume)
+                if DateMatch:
+                    RecentIntVolDate = datetime.datetime.strptime(DateMatch.group(), '%Y-%m-%d').date()
+                else:
+                    RecentIntVolDate = "No Date Available"
+                TimeMatch = re.search(r"\d{2}\:\d{2}\:\d{2}", DateAndTimeListRecentIntVolume)
+                if TimeMatch:
+                    RecentIntVolTime = datetime.datetime.strptime(TimeMatch.group(), '%H:%M:%S').time()
+                else:
+                    RecentIntVolTime = "No Time Available"
+                file.write("<strong>The volume named </strong><span>" + user_riNamevol_List[RecentlyInteractedVolumesCounter] + "</span><strong> was interacted with from the location </strong><span> " + user_riURLvol_List[RecentlyInteractedVolumesCounter] + "</span><strong> which was created on </strong><span>" + str(RecentIntVolDate) + "</span><span> </span><span>" + str(RecentIntVolTime) + "</span><br><br><hr><br>\n")
                 RecentlyInteractedVolumesCounter = RecentlyInteractedVolumesCounter + 1
 
         #Recently visisted Places
@@ -1891,7 +1921,7 @@ def htmlRun():
             file.write("<p>This User has no downloads from safari.</p>")
         else:
             while InstAppsDownloadsCounter <= InstAppsDownloadsListLength - 1:
-                file.write("<strong>The file </strong><span>" + inst_SNoT_List[InstAppsDownloadsCounter] + " </span><strong>was downloaded from the URL </strong><span style=\"color: blue\">" + inst_sURL_List[InstAppsDownloadsCounter] + "</span><br><br><hr><br> \n")
+                file.write("<strong>The file </strong><span>" + inst_SNoT_List[InstAppsDownloadsCounter] + " </span><strong>was downlaoded from the URL </strong><span style=\"color: blue\">" + inst_sURL_List[InstAppsDownloadsCounter] + "</span><br><br><hr><br> \n")
                 InstAppsDownloadsCounter = InstAppsDownloadsCounter + 1
 
         #Unix Executables
@@ -2002,7 +2032,7 @@ def htmlRun():
                     "</script> \n" +
                     #Footer
                     "<div class=footer> \n" +
-                        "\t<p> Mac_Int Prototype </p> \n" +
+                        "\t<p> Footer Placeholder </p> \n" +
                     "</div> \n" +
                     "</body> \n" +
                     "</html> \n")
