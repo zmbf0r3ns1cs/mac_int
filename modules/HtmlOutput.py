@@ -1,3 +1,6 @@
+# HTML Output Script v1.0
+# Benjamin Estes (@Kokosnoot) 2019
+# ----------------------------------------------------------
 
 import re
 import datetime
