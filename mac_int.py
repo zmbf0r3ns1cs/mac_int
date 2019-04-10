@@ -20,7 +20,7 @@
 '''
 import argparse
 import os
-from modules import mountedVolumes, installedApps, internetSearch, userInfo, systemInfo, networkInfo, htmlOutput
+from modules import mountedVolumes, installedApps, internetSearch, userInfo, systemInfo, networkInfo
 
 __VERSION = "1.0"
 __STATUS = "Release Candidate"
@@ -118,6 +118,7 @@ else:
 
 # HTML Output
 if args.html:
-    htmlOutput.htmlRun(args.output_path, args.input_path, args.user_name)
+    os.chdir('modules')
+    exec(open('HtmlOutput.py').read())
 else:
     exit
