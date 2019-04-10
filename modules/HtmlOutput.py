@@ -1910,7 +1910,7 @@ def htmlRun():
             file.write("<p>This User has no downloads from safari.</p>")
         else:
             while InstAppsDownloadsCounter <= InstAppsDownloadsListLength - 1:
-                file.write("<strong>The file </strong><span>" + inst_SNoT_List[InstAppsDownloadsCounter] + " </span><strong>was downlaoded from the URL </strong><span style=\"color: blue\">" + inst_sURL_List[InstAppsDownloadsCounter] + "</span><br><br><hr><br> \n")
+                file.write("<strong>The file </strong><span>" + inst_SNoT_List[InstAppsDownloadsCounter] + " </span><strong>was downloaded from the URL </strong><span style=\"color: blue\">" + inst_sURL_List[InstAppsDownloadsCounter] + "</span><br><br><hr><br> \n")
                 InstAppsDownloadsCounter = InstAppsDownloadsCounter + 1
 
         #Unix Executables
