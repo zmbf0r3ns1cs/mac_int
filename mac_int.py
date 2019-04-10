@@ -20,7 +20,7 @@
 '''
 import argparse
 import os
-from modules import mountedVolumes, installedApps, internetSearch, userInfo, systemInfo, networkInfo
+from modules import mountedVolumes, installedApps, internetSearch, userInfo, systemInfo, networkInfo, htmlOutput
 
 __VERSION = "1.0"
 __STATUS = "Release Candidate"
@@ -113,5 +113,11 @@ if args.SystemInfo:
     systemInfo.systemInfoRun(args.output_path, args.input_path, args.user_name)
     if args.all:
         print("------------------------------------------------------------")
+else:
+    exit
+
+# HTML Output
+if args.html:
+    htmlOutput.htmlRun(args.output_path, args.input_path, args.user_name)
 else:
     exit
