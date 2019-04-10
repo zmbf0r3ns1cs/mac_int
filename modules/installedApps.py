@@ -313,7 +313,6 @@ def installedAppsRun(output_dir, input_path, user_name):
                             riURLLength1 = int = len(inst_recentIURL_List)
                         elif counter == 12:
                             inst_SNoT_List.append(string1)
-                            sNoTLength1 = int = len(inst_SNoT_List)
                         elif counter == 13:
                             inst_sURL_List.append(string1)
                             sURLLength1 = int = len(inst_sURL_List)
@@ -556,7 +555,7 @@ def installedAppsRun(output_dir, input_path, user_name):
         line1 = 0
         writePos1 = 0
         file.write(str(userSearch) + " has downloaded the following files from Safari:\n")
-        while line1 < sNoTLength1:
+        while line1 < len(inst_SNoT_List):
             file.write(
                 "\t-'" + str(inst_SNoT_List[writePos1]) + "' from the url '" + str(
                     inst_sURL_List[writePos1]) + "'\n")
