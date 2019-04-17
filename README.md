@@ -29,7 +29,7 @@ Below you will find an example of mac_int usage on Windows 10, utilizing the `-m
 mac_int.py C:\Users\burnh\Desktop\mac_apt\mac_apt02.db justin.boncaldo -o C:\Users\burnh\Desktop\Capstone -mv
 ```
 
-Below is another example, this time utilizing the `-a` switch to run all mac_int modules together with HTML output:
+Below is another example utilizing the `-a` and `--html` switches to run all mac_int modules together with HTML output:
 ```
 mac_int.py C:\Users\burnh\Desktop\mac_apt\mac_apt02.db justin.boncaldo -a --html
 ```
