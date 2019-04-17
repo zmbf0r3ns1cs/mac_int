@@ -4,7 +4,7 @@
 
 mac_int is an interpretive, modular DFIR intelligence and artifact correlation tool designed to automatically identify patterns and connections between parsed artifact data from the SQLite output of Yogesh Khatri’s open source tool, **mac_apt**.
 
-#### Requirements: Python 3.7.3+ - 32/64 bit
+#### Requirements: Python 3.7.3+ 32/64 bit
 #### mac_apt: https://github.com/ydkhatri/mac_apt
 
 ### Background
@@ -31,7 +31,7 @@ mac_int.py C:\Users\burnh\Desktop\mac_apt\mac_apt02.db justin.boncaldo -o C:\Use
 
 Below is another example, this time utilizing the `-a` switch to run all mac_int modules together:
 ```
-mac_int.py C:\Users\burnh\Desktop\Capstone\mac_apt\mac_apt02.db justin.boncaldo -a 
+mac_int.py C:\Users\burnh\Desktop\mac_apt\mac_apt02.db justin.boncaldo -a 
 ```
 
 ### Current Modules
