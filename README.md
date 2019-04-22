@@ -20,7 +20,7 @@ Users of mac_int will have the ability to utilize pre-researched data interpreta
 
 To see all available options, run the following invocation:
 ```
-python mac_int -h 
+python mac_int.py -h 
 ```
 #### Example Usage
 
