@@ -674,6 +674,16 @@ def htmlRun():
                     ".accordion:hover { \n" +
                         "\tbackground-color: #d3d3d3; \n" +
                     "} \n\n" +
+                    ".accordion:after {\n" +
+                        "\tcontent: '\\002B'; \n" +
+                        "\tcolor: #777; \n" +
+                        "\tfont-weight: bold; \n" +
+                        "\tfloat: right; \n" +
+                        "\tmargin-left: 5px; \n" +
+                    "} \n\n" +
+                    ".AccordionActive:after { \n" +
+                        "\tcontent: \"\\2212\"; \n" +
+                    "} \n\n" +
                     ".active { \n" +
                         "\tbackground-color: #6F9CEB; \n" +
                     "} \n\n" +
@@ -1941,7 +1951,7 @@ def htmlRun():
                     file.write("<strong class=\"indent\"><u>Where it came from:</u> </strong><span>" + inst_iwf2_List[WindowsExecListCounter] + "</span><br><br><hr><br>\n")
                 WindowsExecListCounter = WindowsExecListCounter + 1
         file.write("\t\t</div> \n")
-
+        #file.write("<div id=\"piechart\"> </div>")
         file.write("\t\t</div> \n")
 
         #ENd of Installed Apps------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -1989,7 +1999,7 @@ def htmlRun():
     #     GraphCounter = GraphCounter + 1
     file.write("]); \n" +
                         #Optional; add a title and set the width and height of the chart 
-                        "\tvar options = {'title':'My Average Day', 'width':550, 'height':400}; \n\n" +
+                        "\tvar options = {'title':'Installed Applications', 'width':550, 'height':400}; \n\n" +
                         #Display the chart inside the < div > element with id="piechart" 
                         "\tvar chart = new google.visualization.PieChart(document.getElementById('piechart')); \n" +
                         "\tchart.draw(data, options); \n" +
@@ -2001,7 +2011,7 @@ def htmlRun():
                     "var i; \n" +
                     "for (i = 0; i < acc.length; i++) { \n" +
                         "\tacc[i].addEventListener(\"click\", function() { \n" +
-                            "\t\tthis.classList.toggle(\"active\"); \n" +
+                            "\t\tthis.classList.toggle(\"AccordionActive\"); \n" +
                             "\t\tvar panel = this.nextElementSibling; \n" +
                             "\t\tif (panel.style.display === \"block\") { \n" +
                                 "\t\t\tpanel.style.display = \"none\"; \n" +
@@ -2011,7 +2021,7 @@ def htmlRun():
                     "</script> \n" +
                     #Footer
                     "<div class=footer> \n" +
-                        "\t<p> Footer Placeholder </p> \n" +
+                        "\t<p> The Mac_Int Project </p> \n" +
                     "</div> \n" +
                     "</body> \n" +
                     "</html> \n")
