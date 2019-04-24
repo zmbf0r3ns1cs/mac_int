@@ -128,6 +128,6 @@ else:
 # HTML Output
 if args.html:
     os.chdir('modules')
-    exec(open('HtmlOutput.py').read())
+    exec(open('htmlOutput.py').read())
 else:
     exit

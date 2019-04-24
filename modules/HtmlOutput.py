@@ -8,7 +8,7 @@ from io import open
 
 def htmlRun():
     os.chdir("../")
-    file = open("Output.html", 'w+')
+    file = open("output.html", 'w+')
 
     InstAppExists = os.path.isfile('tempinstalledApps.json')
     if InstAppExists:
@@ -552,7 +552,7 @@ def htmlRun():
     file.write("<!DOCTYPE html> \n" +
                     "<html lang=\"en\"> \n" +
                     "<head> \n" +
-                    "<title> Mac_Int Output </title> \n" +
+                    "<title> mac_int Output </title> \n" +
                     "<meta charset=\"UTF-8\"> \n" +
                     "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> \n" +
                     "<style> \n" +
@@ -708,17 +708,17 @@ def htmlRun():
                     "<div class=\"row\"> \n" +
                         "\t<div class=\"overview\"> \n" +
                             "\t\t<h2 style=\"text-align: center\"> Overview </h2> \n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> User Name for Data:</u> </strong></span>" + user_name + "</span><br><hr>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Username for Data:</u> </strong></span>" + user_name + "</span><br><hr>\n" +
                             "\t\t<span> <strong style=\"padding-left: 10px\"><u> Model Name:</u> </strong></span><span>" + str(system_Model) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> OSX Version:</u> </strong></span>" + str(system_version2) + "</span><span> </span><span>" + str(system_version1) + "</span><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> OS Version:</u> </strong></span>" + str(system_version2) + "</span><span> </span><span>" + str(system_version1) + "</span><br>\n" +
                             "\t\t<span> <strong style=\"padding-left: 10px\"><u> Hardware Serial Number:</u> </strong></span>" + str(system_serial) + "</span><br><hr>\n" +
                             "\t\t<span> <strong style=\"padding-left: 10px\"><u> Computer Name:</u> </strong></span>" + str(system_computerName) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Local Host Name:</u> </strong></span>" + str(system_localHostName) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Mac's Timezone:</u> </strong></span>" + str(system_timezone) + "</span><br><hr>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Local Hostname:</u> </strong></span>" + str(system_localHostName) + "</span><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Timezone:</u> </strong></span>" + str(system_timezone) + "</span><br><hr>\n" +
                             "\t\t<span> <strong style=\"padding-left: 10px\"><u> Last User:</u> </strong></span>" + str(system_lastUserName) + "</span><br>\n" +
                             "\t\t<span> <strong style=\"padding-left: 10px\"><u> Last User Status:</u> </strong></span>" + str(system_lastLoginStatus) + "</span><br>\n" +
                             "\t\t<span> <strong style=\"padding-left: 10px\"><u> Last Login Time:</u> </strong></span>" + str(system_lastLoginTime) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Mac Login Window Text:</u> </strong></span>" + str(system_loginText) + "</span><br><hr>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Login Screen Text:</u> </strong></span>" + str(system_loginText) + "</span><br><hr>\n" +
                             "\t\t<span> <strong style=\"padding-left: 10px\"><u> Volume's Total Files:</u> </strong></span>" + str(system_NumberofFiles) + "</span><br>\n" +
                             "\t\t<span> <strong style=\"padding-left: 10px\"><u> Volume's Total Folders:</u> </strong></span>" + str(system_NumberofFolders) + "</span><br>\n" +
                             "\t\t<span> <strong style=\"padding-left: 10px\"><u> Volume's Block Size:</u> </strong></span>" + str(system_blockSize) + "</span><br>\n" +
@@ -2021,7 +2021,7 @@ def htmlRun():
                     "</script> \n" +
                     #Footer
                     "<div class=footer> \n" +
-                        "\t<p> The Mac_Int Project </p> \n" +
+                        "\t<p> Powered by mac_apt </p> \n" +
                     "</div> \n" +
                     "</body> \n" +
                     "</html> \n")
