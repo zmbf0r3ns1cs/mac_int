@@ -2021,7 +2021,7 @@ def htmlRun():
                     "</script> \n" +
                     #Footer
                     "<div class=footer> \n" +
-                        "\t<a href="https://github.com/ydkhatri/mac_apt"> Powered by mac_apt </a> \n" +
+                        "\t<a href=\"https://github.com/ydkhatri/mac_apt\"> Powered by mac_apt </a> \n" +
                     "</div> \n" +
                     "</body> \n" +
                     "</html> \n")
