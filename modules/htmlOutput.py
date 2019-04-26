@@ -699,6 +699,28 @@ def htmlRun():
                     "strong.indent{ \n" +
                         "\tpadding-left: 2em; \n" +
                     "} \n\n" +
+                   ".tooltip { \n" +
+                       "\tposition: relative; \n" +
+                       "\tdisplay: inline-block; \n" +
+                       "\tborder-bottom: 1px dotted black \n" +
+                   "} \n\n" +
+                   ".tooltip.tooltiptext { \n" +
+                       "\tvisibility: hidden; \n" +
+                       "\twidth: 120px; \n" +
+                       "\tbackground-color: black; \n" +
+                       "\tcolor: #fff; \n" +
+                       "\ttext - align: center; \n" +
+                       "\tborder-radius: 6px; \n" +
+                       "\tpadding: 5px 0; \n" +
+                       "\tposition: absolute; \n" +
+                       "\tz-index: 1; \n" +
+                       "\tbottom: 100%; \n" +
+                       "\tleft: 50%; \n" +
+                       "\tmargin-left: -60px; \n" +
+                   "} \n\n" +
+                       ".tooltip:hover.tooltiptext { \n" +
+                       "\tvisibility: visible; \n" +
+                   "} \n\n" +
                     "</style> \n" +
                     "</head> \n" +
                     "<body> \n\n"
@@ -761,7 +783,7 @@ def htmlRun():
             if mount_fsList[volLengthCounter] == '[]':
                 file.write("\t\t\t\t\t<td style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\">" + mount_volList[volLengthCounter] + "</td> \n")
             else:
-                file.write("\t\t\t\t\t<td style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\">" + mount_volList[volLengthCounter] + "<span style=\"color: red\">*</span></td> \n")
+                file.write("\t\t\t\t\t<td style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\">" + mount_volList[volLengthCounter] + "<div class=\"tooltip\">*<span class=\"tooltiptext\">This is the drive that was imaged during the forensic acquisition</span></div></td> \n")
             mvCRstring = mount_crList[volLengthCounter]
             DateMatch = re.search(r"\d{4}\-\d{2}\-\d{2}", mvCRstring)
             if DateMatch:
@@ -812,8 +834,7 @@ def htmlRun():
             if volLengthCounter == volLength:
                 file.write("\t\t\t</table>")
         file.write("<strong>Notes about Mounted Volume Information</strong><br> \n")
-        file.write("<ul>\n<li><span style=\"color: red\">*</span> <span> indicates that the drive was imaged during forensic acquisition. If not specified the drive was not imaged during forensic acquisition. It could possibly be a secondary/removable device. </span></li> \n")
-        file.write("<li><p> If a time Date and Time are not available, the drive is more than likely a secondary drive or a removable device. Since these drives are not usually imaged, date and time information is not gathered by the Mac_Apt tool.</p></li>\n</ul>")
+        file.write("<ul><li><p> If a time Date and Time are not available, the drive is more than likely a secondary drive or a removable device. Since these drives are not usually imaged, date and time information is not gathered by the Mac_Apt tool.</p></li>\n</ul>")
         file.write("\t\t\t\t<div> \n")
         #Mounted Volumes Bash Output
         mvBashLengthCounter = 0
@@ -831,7 +852,7 @@ def htmlRun():
                 file.write("\t\t\t\t\t<td style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\">" + mount_seList[mvBashLengthCounter] + "</td> \n")
                 file.write("\t\t\t\t</tr> \n")
                 file.write("\t\t\t\t<tr> \n")
-                file.write("\t\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"> Bash Command </th> \n")
+                file.write("\t\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"><div class=\"tooltip\">Bash Command(s)<span class=\"tooltiptext\">Bash Commands are listed in the order ran and are seperated by a semicolon</span></div></th> \n")
                 file.write("\t\t\t\t\t<td style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\">" + mount_bashList[mvBashLengthCounter] + "</td> \n")
                 file.write("\t\t\t\t</tr> \n")
                 file.write("\t\t\t</table> \n")
@@ -906,7 +927,7 @@ def htmlRun():
                     file.write("<strong class=\"indent\"><u>Date Downloaded:</u> </strong> <span>No Date Specified</span><br>")
                 else:
                     file.write("<strong class=\"indent\"><u>Date Downloaded:</u> </strong><span>" + internet_SafariDLDate_List[ISSafariDLListLengthCounter] + "</span><br>\n")
-                file.write("<strong class=\"indent\"><u>Save Location:</u> </strong> \n<span>" + internet_SafariDLOther_List[ISSafariDLListLengthCounter] + "</span> <br><br>")
+                file.write("<strong class=\"indent\"><div class=\"tooltip\"><u>Save Location:</u><span class=\"tooltiptext\">Location that the file was saved on the imaged system. This is stated as a relative path.</span></div> </strong> \n<span>" + internet_SafariDLOther_List[ISSafariDLListLengthCounter] + "</span> <br><br>")
                 file.write("<hr><br>\n")
                 ISSafariDLListLengthCounter = ISSafariDLListLengthCounter + 1
 
@@ -1114,15 +1135,15 @@ def htmlRun():
                                         "\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"> Domain Active Directory Info </th> \n" +
 
                                         "\t\t\t\t<tr> \n" +
-                                            "\t\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"> Domain Name </th> \n")
+                                            "\t\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"><div class=\"tooltip\">Domain Name<span class=\"tooltiptext\">The name of the domain server that the system was connected to.</span></div> </th> \n")
         file.write("\t\t\t\t\t<td style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\">" + network_domainList[0] + "</td> \n")
         file.write("\t\t\t\t</tr> \n" +
                                         "\t\t\t\t<tr> \n" +
-                                            "\t\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"> Forest </th> \n")
+                                            "\t\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"><div class=\"tooltip\">Forest<span class=\"tooltiptext\">A Forest is a group of Active Directory domains, sharing the same schema.</span></div> </th> \n")
         file.write("\t\t\t\t\t<td style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\">" + network_forestList[0] + "</td> \n")
         file.write("\t\t\t\t</tr> \n" +
                                         "\t\t\t\t<tr> \n" +
-                                            "\t\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"> Trust Domain Name </th> \n")
+                                            "\t\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"><div class=\"tooltip\">Trust Domain User<span class=\"tooltiptext\">The domain server name that the system uses to authenticate users.</span></div> </th> \n")
         file.write("\t\t\t\t\t<td style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\">" + network_trustDomainList[0] + "</td> \n")
         file.write("\t\t\t\t</tr> \n" +
                                         "\t\t\t\t<tr> \n" +
@@ -1130,11 +1151,11 @@ def htmlRun():
         file.write("\t\t\t\t\t<td style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\">" + network_trustAccList[0] + "</td> \n")
         file.write("\t\t\t\t</tr> \n" +
                                         "\t\t\t\t<tr> \n" +
-                                            "\t\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"> Node Name </th> \n")
+                                            "\t\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"><div class=\"tooltip\">Node Name<span class=\"tooltiptext\">The name of the tree that the system is connected to in the active directory.</span></div> </th> \n")
         file.write("\t\t\t\t\t<td style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\">" + network_nodeNameList[0] + "</td> \n")
         file.write("\t\t\t\t</tr> \n" +
                                         "\t\t\t\t<tr> \n" +
-                                            "\t\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"> Trust Kerberos Principal </th> \n")
+                                            "\t\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"><div class=\"tooltip\">Trust Kerberos Principal<span class=\"tooltiptext\">The name of the trust account and the realm/forest that it is connected to.</span></div> </th> \n")
         file.write("\t\t\t\t\t<td style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\">" + network_trustKPrincipalList[0] + "</td> \n")
         file.write("\t\t\t\t</tr> \n" +
                                         "\t\t\t\t<tr> \n" +
@@ -1142,7 +1163,7 @@ def htmlRun():
         file.write("\t\t\t\t\t<td style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\">" + network_allowmultiDomainList[0] + "</td> \n")
         file.write("\t\t\t\t</tr> \n" +
                                         "\t\t\t\t<tr> \n" +
-                                            "\t\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"> Cache Last User Logon? </th> \n")
+                                            "\t\t\t\t\t<th style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\"><div class=\"tooltip\">Cache Last User Logon?<span class=\"tooltiptext\">Does the system store the last logon to the system?</span></div></th> \n")
         file.write("\t\t\t\t\t<td style=\"border: 1px solid black; background-color:white; text-align: left; padding: 8px\">" + network_cacheLastUserLogonList[0] + "</td> \n")
         file.write("\t\t\t\t</tr> \n" +
 
@@ -1484,7 +1505,7 @@ def htmlRun():
                     file.write("<strong>Session Number " + str(SessionCounter) + "</strong><br>\n")
                     file.write("<strong><u>Session Start Time:</u> </strong><span>" + user_bashSSList[BashSessionListCounter] + "</span><br> \n")
                     file.write("<strong><u>Session End Time:</u> </strong><span>" + user_bashSEList[BashSessionListCounter] + "</span><br> \n")
-                    file.write("<strong><u>Bash Commands:</u> </strong><span>" + user_bashSCList[BashSessionListCounter] + "</span><br><br><hr><br> \n")
+                    file.write("<strong><div class=\"tooltip\"><u>Bash Commands:</u><span class=\"tooltiptext\">Bash commands are listed in order that they were ran and are seperated by a semicolon.</span></div> </strong><span>" + user_bashSCList[BashSessionListCounter] + "</span><br><br><hr><br> \n")
                 BashSessionListCounter = BashSessionListCounter + 1
                 SessionCounter = SessionCounter + 1
 
@@ -1555,7 +1576,7 @@ def htmlRun():
                 else:
                     file.write("<strong class=\"indent\"><u>Date Downloaded:</u> </strong><span>" + internet_SafariDLDate_List[
                         ISSafariDLListLengthCounter] + "</span><br>\n")
-                file.write("<strong class=\"indent\"><u>Save Location:</u> </strong> \n<span>" + internet_SafariDLOther_List[
+                file.write("<strong class=\"indent\"><div class=\"tooltip\"><u>Save Location:</u><span class=\"tooltiptext\">Location in which the file was saved to on the imaged system. This location is represented with a relative path.</span></div> </strong> \n<span>" + internet_SafariDLOther_List[
                     ISSafariDLListLengthCounter] + "</span> <br><br>")
                 file.write("<hr><br>\n")
                 ISSafariDLListLengthCounter = ISSafariDLListLengthCounter + 1
