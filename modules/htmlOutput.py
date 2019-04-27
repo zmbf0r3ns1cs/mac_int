@@ -638,7 +638,8 @@ def htmlRun():
                     "} \n\n" +
                     ".overview { \n" +
                         "\tflex: 19%; \n" +
-                        "border: 1px solid #3a74d1; \n" +
+                        "\tborder: 1px solid #3a74d1; \n" +
+                        "\tbackground-color: #eaf2ef; \n" +
                     "} \n\n" +
                     ".main { \n" +
                         "\tflex: 80%; \n" +
@@ -731,24 +732,27 @@ def htmlRun():
                         "\t<div class=\"overview\"> \n" +
                             "\t\t<h2 style=\"text-align: center\"> Overview </h2> \n" +
                             "\t\t<span> <strong style=\"padding-left: 10px\"><u> Username for Data:</u> </strong></span>" + user_name + "</span><br><hr>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Model Name:</u> </strong></span><span>" + str(system_Model) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> OS Version:</u> </strong></span>" + str(system_version2) + "</span><span> </span><span>" + str(system_version1) + "</span><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Model Name:</u> </strong></span><span>" + str(system_Model) + "</span><br><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> OS Version:</u> </strong></span>" + str(system_version2) + "</span><span> </span><span>" + str(system_version1) + "</span><br><br>\n" +
                             "\t\t<span> <strong style=\"padding-left: 10px\"><u> Hardware Serial Number:</u> </strong></span>" + str(system_serial) + "</span><br><hr>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Computer Name:</u> </strong></span>" + str(system_computerName) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Local Hostname:</u> </strong></span>" + str(system_localHostName) + "</span><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Computer Name:</u> </strong></span>" + str(system_computerName) + "</span><br><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Local Hostname:</u> </strong></span>" + str(system_localHostName) + "</span><br><br>\n" +
                             "\t\t<span> <strong style=\"padding-left: 10px\"><u> Timezone:</u> </strong></span>" + str(system_timezone) + "</span><br><hr>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Last User:</u> </strong></span>" + str(system_lastUserName) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Last User Status:</u> </strong></span>" + str(system_lastLoginStatus) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Last Login Time:</u> </strong></span>" + str(system_lastLoginTime) + "</span><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Last User:</u> </strong></span>" + str(system_lastUserName) + "</span><br><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Last User Status:</u> </strong></span>" + str(system_lastLoginStatus) + "</span><br><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Last Login Time:</u> </strong></span>" + str(system_lastLoginTime) + "</span><br><br>\n" +
                             "\t\t<span> <strong style=\"padding-left: 10px\"><u> Login Screen Text:</u> </strong></span>" + str(system_loginText) + "</span><br><hr>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Volume's Total Files:</u> </strong></span>" + str(system_NumberofFiles) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Volume's Total Folders:</u> </strong></span>" + str(system_NumberofFolders) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Volume's Block Size:</u> </strong></span>" + str(system_blockSize) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Volume Created Date:</u> </strong></span>" + str(system_Created) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Volume's Last Modified Date:</u> </strong></span>" + str(system_Modified) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Last Time Volume Check for Errors:</u> </strong></span>" + str(system_Checked) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Last Time Volume Backed Up:</u> </strong></span>" + str(system_Backup) + "</span><br>\n" +
-                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Last Volume Mount Version:</u> </strong></span>" + str(system_Mounted) + "</span><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Volume's Total Files:</u> </strong></span>" + str(system_NumberofFiles) + "</span><br><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Volume's Total Folders:</u> </strong></span>" + str(system_NumberofFolders) + "</span><br><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Volume's Block Size:</u> </strong></span>" + str(system_blockSize) + "</span><br><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Volume Created Date:</u> </strong></span>" + str(system_Created) + "</span><br><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Volume's Last Modified Date:</u> </strong></span>" + str(system_Modified) + "</span><br><br>\n" +
+                            "\t\t<span> <strong style=\"padding-left: 10px\"><u> Last Time Volume Check for Errors:</u> </strong></span>" + str(system_Checked) + "</span><br><br>\n")
+    if len(system_Backup) == 0:
+        file.write("\t\t<span> <strong style=\"padding-left: 10px\"><u> Last Time Volume Backed Up:</u> </strong></span>N/A</span><br><br>\n")
+    else:
+        file.write("\t\t<span> <strong style=\"padding-left: 10px\"><u> Last Time Volume Backed Up:</u> </strong></span>" + str(system_Backup) + "</span><br><br>\n")
+    file.write("\t\t<span> <strong style=\"padding-left: 10px\"><u> Last Volume Mount Version:</u> </strong></span>" + str(system_Mounted) + "</span><br><br>\n" +
                             "\t\t</div> \n" +
                         "\t<div class=\"main\"> \n" +
                             "\t\t<div class=\"tab\"> \n" +
@@ -2042,6 +2046,7 @@ def htmlRun():
                     "</script> \n" +
                     #Footer
                     "<div class=footer> \n" +
+                        "\t<p>The Mac_Int Project</p> \n" +
                         "\t<a href=\"https://github.com/ydkhatri/mac_apt\"> Powered by mac_apt </a> \n" +
                     "</div> \n" +
                     "</body> \n" +
