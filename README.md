@@ -13,6 +13,7 @@ Users of mac_int will have the ability to utilize pre-researched data interpreta
 
 #### Features
 - Cross-Platform (runs on any OS with Python 3.7.3 and up)
+  - _**Tested on Windows 10, macOS 10.14, & Ubuntu 19**_
 - Intelligent "connective parsing" from mac_apt SQLite Database output
 - Interpreted data can be displayed via HTML format for ease-of-use and readability
 
