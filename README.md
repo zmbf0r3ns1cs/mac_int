@@ -27,6 +27,10 @@ mac_int.py -h
 ```
 python mac_int.py -h
 ```
+#### Linux
+```
+python3 mac_int.py -h
+```
 #### Example Usage
 
 Below you will find an example of mac_int usage on Windows 10, utilizing the `-mv` switch to run the Mounted Volumes module with username *"justin.boncaldo"* and `-o` to output to a specified directory:
