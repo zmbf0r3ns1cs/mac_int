@@ -21,7 +21,6 @@ def systemInfoRun(output_dir, input_path, user_name):
     userSearch = user_name
 
     def systemInfo():
-        #global a, b, c, g, h, i, output, userSearch
         # Define strings
         d = []
         e = []

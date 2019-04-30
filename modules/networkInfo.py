@@ -21,7 +21,6 @@ def networkInfoRun(output_dir, input_path, user_name):
     userSearch = user_name
 
     def NetworkInfo():
-        #global a, b, c, g, h, i, output, userSearch
         # Define strings
         d = []
         e = []
