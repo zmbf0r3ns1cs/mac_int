@@ -556,7 +556,7 @@ def htmlRun():
                     "<meta charset=\"UTF-8\"> \n" +
                     "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\"> \n" +
                     "<style> \n" +
-                    "body {font-family: Times New Roman; margin-bottom: 100px;} \n" +
+                    "body {font-family: Arial; margin-bottom: 100px;} \n" +
                     "html {overflow-y: scroll;} \n" +
                     ".tooltip { \n" +
                         "position: relative; \n" +
