@@ -726,7 +726,7 @@ def htmlRun():
                     "</head> \n" +
                     "<body> \n\n"
                         "<div class=\"header\"> \n" +
-                        "\t<img src=\"images\\mac_intLogo.png\" alt=\"The logo for Mac_Int\" width=\"40%\" height=\"40%\">  \n" +
+                        "\t<img src=\"images\\mac_intLogo.png\" alt=\"The logo for mac_int\" width=\"40%\" height=\"40%\">  \n" +
                     "</div> \n\n" +
                     "<div class=\"row\"> \n" +
                         "\t<div class=\"overview\"> \n" +
@@ -838,7 +838,7 @@ def htmlRun():
             if volLengthCounter == volLength:
                 file.write("\t\t\t</table>")
         file.write("<strong>Notes about Mounted Volume Information</strong><br> \n")
-        file.write("<ul><li><p> If a time Date and Time are not available, the drive is more than likely a secondary drive or a removable device. Since these drives are not usually imaged, date and time information is not gathered by the Mac_Apt tool.</p></li>\n</ul>")
+        file.write("<ul><li><p> If a time Date and Time are not available, the drive is more than likely a secondary drive or a removable device. Since these drives are not usually imaged, date and time information is not gathered by the mac_apt tool.</p></li>\n</ul>")
         file.write("\t\t\t\t<div> \n")
         #Mounted Volumes Bash Output
         mvBashLengthCounter = 0
@@ -2046,7 +2046,7 @@ def htmlRun():
                     "</script> \n" +
                     #Footer
                     "<div class=footer> \n" +
-                        "\t<p>The Mac_Int Project</p> \n" +
+                        "\t<p>The mac_Int Project</p> \n" +
                         "\t<a href=\"https://github.com/ydkhatri/mac_apt\"> Powered by mac_apt </a> \n" +
                     "</div> \n" +
                     "</body> \n" +
