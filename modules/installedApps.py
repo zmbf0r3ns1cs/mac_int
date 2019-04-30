@@ -15,6 +15,7 @@ def installedAppsRun(output_dir, input_path, user_name):
     # Mounted Volume variables
     global a, b, c, g, h, i, output, nonUserSpecific
 
+    # Start parsing
     def generalSystem():
         global a, b, c, g, h, i, output
         # Define strings

@@ -20,6 +20,7 @@ def networkInfoRun(output_dir, input_path, user_name):
     # Username search (determined in mac_int.py)
     userSearch = user_name
 
+    # Start parsing
     def NetworkInfo():
         # Define strings
         d = []

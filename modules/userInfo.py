@@ -17,6 +17,7 @@ def userInfoRun(output_dir, input_path, user_name):
     # Mounted Volume variables
     global a, b, c, g, h, i, output, userSearch
 
+    # Start parsing
     def userInfo():
         global a, b, c, g, h, i, output, userSearch
         # Define strings

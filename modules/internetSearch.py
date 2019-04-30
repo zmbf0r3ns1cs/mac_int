@@ -17,6 +17,7 @@ def internetSearchRun(output_dir, input_path, user_name):
     # Mounted Volume variables
     global a, b, c, g, h, i, output
 
+    # Start parsing
     def SafariQuarantine():
         global a, b, c, g, h, i, output
         # Define strings
