@@ -19,8 +19,13 @@ Users of mac_int will have the ability to utilize pre-researched data interpreta
 ### Getting Started
 
 To see all available options, run the following invocation:
+#### Windows
 ```
-python mac_int.py -h 
+mac_int.py -h 
+```
+#### macOS
+```
+python mac_int.py -h
 ```
 #### Example Usage
 
@@ -29,9 +34,9 @@ Below you will find an example of mac_int usage on Windows 10, utilizing the `-m
 mac_int.py C:\Users\burnh\Desktop\mac_apt\mac_apt02.db justin.boncaldo -o C:\Users\burnh\Desktop\Capstone -mv
 ```
 
-Below is another example utilizing the `-a` and `--html` switches to run all mac_int modules together with HTML output:
+Below is an example of mac_int usage on macOS, utilizing the `-a` and `--html` switches to run all mac_int modules together with HTML output:
 ```
-mac_int.py C:\Users\burnh\Desktop\mac_apt\mac_apt02.db justin.boncaldo -a --html
+python mac_int.py /Users/zachburnham/Desktop/Capstone/Mac_apt_Output/mac_apt02.db justin.boncaldo -a --html
 ```
 
 ### Current Modules
